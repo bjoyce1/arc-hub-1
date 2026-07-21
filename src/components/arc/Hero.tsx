@@ -41,32 +41,61 @@ export function Hero() {
         />
       </motion.div>
 
-      {/* Gold detail layer — hairline rules + accent dots + tick marks */}
+      {/* Gold building outlines — subtle hairline overlay tracing the skyline, brightens on hover */}
+      <svg
+        aria-hidden
+        viewBox="0 0 1920 1080"
+        preserveAspectRatio="xMidYMax slice"
+        className="pointer-events-none absolute inset-0 z-[1] h-full w-full [&_path]:pointer-events-auto"
+      >
+        <g
+          fill="none"
+          stroke="var(--gold)"
+          strokeWidth="1"
+          strokeLinejoin="miter"
+          strokeLinecap="square"
+          vectorEffect="non-scaling-stroke"
+          className="[&>path]:opacity-25 [&>path]:transition-all [&>path]:duration-500 [&>path:hover]:opacity-100 [&>path:hover]:[stroke-width:1.5] [&>path:hover]:[filter:drop-shadow(0_0_6px_rgba(201,169,106,0.55))]"
+        >
+          {/* left short block */}
+          <path d="M30 1080 V712 H130 V1080" />
+          {/* angled-top tower */}
+          <path d="M140 1080 V660 L240 610 V1080" />
+          {/* small block */}
+          <path d="M248 1080 V790 H322 V1080" />
+          {/* spired tower w/ antenna */}
+          <path d="M340 1080 V545 H430 V1080 M385 545 V470" />
+          {/* peaked (angled roof) high-rise */}
+          <path d="M490 1080 V520 L560 470 L630 520 V1080" />
+          {/* stepped twin */}
+          <path d="M640 1080 V560 H700 V510 H755 V1080" />
+          {/* central cylinder mega-tower */}
+          <path d="M770 1080 V345 H895 V1080 M810 345 V270 M855 345 V270" />
+          {/* mid-right block */}
+          <path d="M905 1080 V545 H1000 V1080" />
+          {/* second cylinder tower */}
+          <path d="M1010 1080 V440 H1140 V1080 M1075 440 V370" />
+          {/* thin tall */}
+          <path d="M1155 1080 V510 H1240 V1080 M1197 510 V455" />
+          {/* mid cluster */}
+          <path d="M1250 1080 V575 H1345 V1080" />
+          {/* pointed tower */}
+          <path d="M1360 1080 V495 L1415 455 L1470 495 V1080" />
+          {/* wide right block */}
+          <path d="M1480 1080 V580 H1620 V1080" />
+          {/* right stack */}
+          <path d="M1630 1080 V645 H1735 V1080" />
+          {/* observation tower (right) */}
+          <path d="M1795 1080 V460 M1795 460 A25 18 0 1 0 1795.01 460 M1795 442 V400" />
+        </g>
+      </svg>
+
+      {/* Hairline column guides */}
       <div aria-hidden className="pointer-events-none absolute inset-0 z-[1]">
         <div className="absolute inset-y-0 left-[16%] w-px bg-gold/10" />
         <div className="absolute inset-y-0 right-[16%] w-px bg-gold/10" />
-        {[
-          "left-[16%] top-[22%]",
-          "right-[16%] top-[22%]",
-          "left-[16%] bottom-[22%]",
-          "right-[16%] bottom-[22%]",
-        ].map((pos) => (
-          <span
-            key={pos}
-            className={`group/dot pointer-events-auto absolute ${pos} -translate-x-1/2 -translate-y-1/2`}
-          >
-            <span className="block h-1 w-1 rounded-full bg-gold/50 transition-all duration-500 group-hover/dot:h-1.5 group-hover/dot:w-1.5 group-hover/dot:bg-gold group-hover/dot:shadow-[0_0_0_3px_rgba(201,169,106,0.18)]" />
-          </span>
-        ))}
-        <div className="pointer-events-auto absolute inset-x-0 top-20 hidden justify-center gap-3 sm:flex">
-          {Array.from({ length: 9 }).map((_, i) => (
-            <span
-              key={i}
-              className="h-2 w-px bg-gold/15 transition-all duration-500 hover:h-3 hover:bg-gold"
-            />
-          ))}
-        </div>
       </div>
+
 
       {/* Corner HUD hairline brackets — gold on hover */}
       <div className="pointer-events-none absolute inset-6 z-[2] hidden sm:block">
