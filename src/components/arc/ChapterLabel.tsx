@@ -22,8 +22,10 @@ export function ChapterLabel({ children, align = "center", index }: ChapterLabel
       <span className="chapter-pill">
         {index && <span className="text-dim">{index}</span>}
         {index && <span aria-hidden className="h-3 w-px bg-hairline-strong" />}
+        <span aria-hidden className="h-1 w-1 rounded-full bg-gold/80" />
         <span>{children}</span>
       </span>
+
     </motion.div>
   );
 }

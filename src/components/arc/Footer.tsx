@@ -12,9 +12,10 @@ export function Footer() {
               A movement of artists, producers, DJs, and label owners committed to
               consciousness, ownership, and community. Houston, since 2014.
             </p>
-            <p className="mt-6 font-mono-tech text-[10px] uppercase tracking-[0.28em] text-dim">
+            <p className="mt-6 font-mono-tech text-[10px] uppercase tracking-[0.28em] text-gold/70">
               EST_2014 · HOUSTON_TX · REV.03
             </p>
+
           </div>
 
           <div>

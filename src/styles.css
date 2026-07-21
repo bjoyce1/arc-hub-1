@@ -60,13 +60,13 @@
   --color-red-dim: var(--red-dim);
   --color-green: var(--green);
 
-  /* Aliases (legacy names still referenced across the codebase) */
-  --color-gold: var(--red);
-  --color-gold-light: var(--red);
-  --color-gold-dark: var(--red-dim);
+  --color-gold: var(--gold);
+  --color-gold-light: var(--gold-light);
+  --color-gold-dark: var(--gold-dark);
   --color-blood: var(--red);
   --color-blood-light: var(--red);
   --color-blood-dark: var(--red-dim);
+
 
   --font-display: "Inter", ui-sans-serif, system-ui, sans-serif;
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
@@ -93,8 +93,14 @@
   --red: #E4322B;
   --red-dim: #B0231D;
 
-  /* Rare secondary — growth / affirmation only */
+  /* Subtle secondary accent — antique gold, used sparingly for warmth */
+  --gold: #C9A96A;
+  --gold-light: #D9BE83;
+  --gold-dark: #9C7F45;
+
+  /* Rare tertiary — growth / affirmation only */
   --green: #3FB27F;
+
 
   /* Semantic tokens (shadcn map) */
   --background: var(--ink);
