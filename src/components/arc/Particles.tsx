@@ -17,6 +17,8 @@ export function Particles({
   color = "var(--gold)",
 }: ParticlesProps) {
   const reduce = useReducedMotion();
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => setMounted(true), []);
   const dots = useMemo(
     () =>
       Array.from({ length: count }, (_, i) => ({
@@ -33,7 +35,7 @@ export function Particles({
     [count],
   );
 
-  if (reduce) return null;
+  if (reduce || !mounted) return null;
 
   return (
     <div aria-hidden className={`pointer-events-none absolute inset-0 overflow-hidden ${className}`}>
