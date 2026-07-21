@@ -145,14 +145,14 @@ export function AlbumCard({
           width={1024}
           height={1024}
         />
-        {/* Gold sheen sweep on hover */}
+        {/* Subtle gold sheen sweep on hover */}
         <div
           aria-hidden
-          className="pointer-events-none absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-gold/25 to-transparent transition-transform duration-1000 group-hover:translate-x-full"
+          className="pointer-events-none absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-ivory/10 to-transparent transition-transform duration-1000 group-hover:translate-x-full"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/40 to-transparent opacity-70 transition-opacity duration-500 group-hover:opacity-90" />
         {upcoming && (
-          <span className="absolute left-4 top-4 rounded-full bg-gold-gradient px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-ink shadow-lg">
+          <span className="absolute left-4 top-4 rounded-full bg-gold-gradient px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-ink">
             {status}
           </span>
         )}
