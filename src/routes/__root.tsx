@@ -13,6 +13,8 @@ import { reportLovableError } from "../lib/lovable-error-reporting";
 import { SiteNav } from "@/components/arc/SiteNav";
 import { MobileTabBar } from "@/components/arc/MobileTabBar";
 import { Footer } from "@/components/arc/Footer";
+import { ScrollProgress } from "@/components/arc/ScrollProgress";
+import { PageTransition } from "@/components/arc/PageTransition";
 
 function NotFoundComponent() {
   return (
