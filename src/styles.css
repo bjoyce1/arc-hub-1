@@ -68,6 +68,11 @@
   --gold-light: oklch(0.88 0.12 92); /* #F5D77A */
   --gold-dark: oklch(0.55 0.11 75);  /* #8B6F1F */
 
+  /* Blood-red accent — flag/banner ribbon, revolutionary energy */
+  --blood: oklch(0.52 0.20 27);       /* deep crimson */
+  --blood-light: oklch(0.62 0.22 27); /* signal red */
+  --blood-dark: oklch(0.38 0.16 27);  /* oxblood */
+
   /* Semantic tokens mapped to brand */
   --background: var(--ink);
   --foreground: var(--ivory);
