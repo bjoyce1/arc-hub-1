@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { PageHeader } from "@/components/arc/PageHeader";
 import { Reveal } from "@/components/arc/Reveal";
+import heroAbout from "@/assets/hero-about.jpg";
 
 export const Route = createFileRoute("/about")({
   head: () => ({
@@ -57,6 +58,8 @@ function About() {
         eyebrow="Our Origin"
         title={<>The story of <span className="text-gold-gradient">A.R.C.</span></>}
         intro="From a room in Chicago to a movement in Houston  -  how Artists Respecting Community was born and why it still matters."
+        image={heroAbout}
+        imageAlt="Silhouettes of Hip Hop figures gathered in a dim room, warm gold light through window blinds"
       />
 
       <section className="py-16 sm:py-24">

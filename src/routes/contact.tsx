@@ -3,6 +3,7 @@ import { useState } from "react";
 import { Send, Check } from "lucide-react";
 import { PageHeader } from "@/components/arc/PageHeader";
 import { Reveal } from "@/components/arc/Reveal";
+import heroContact from "@/assets/hero-contact.jpg";
 
 export const Route = createFileRoute("/contact")({
   head: () => ({
@@ -41,6 +42,8 @@ function Contact() {
         eyebrow="Reach Out"
         title={<>Get in <span className="text-gold-gradient">touch</span></>}
         intro="Questions about the music industry? Community issues? Want to join the movement? Send it through."
+        image={heroContact}
+        imageAlt="Houston skyline at night with warm gold city lights against a deep black sky"
       />
 
       <section className="py-16 sm:py-24">

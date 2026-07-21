@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { motion } from "framer-motion";
 import { PageHeader } from "@/components/arc/PageHeader";
+import heroPioneers from "@/assets/hero-pioneers.jpg";
 
 export const Route = createFileRoute("/pioneers")({
   head: () => ({
@@ -40,6 +41,8 @@ function Pioneers() {
         eyebrow="The Pioneers"
         title={<>The <span className="text-gold-gradient">founders</span></>}
         intro="Veteran artists, producers, label owners, and DJs who built the first room and set the standard for the movement."
+        image={heroPioneers}
+        imageAlt="Silhouettes of eight figures standing under warm gold spotlights on a dark stage"
       />
 
       <section className="py-16 sm:py-24">
