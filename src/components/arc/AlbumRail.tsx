@@ -161,6 +161,32 @@ export function AlbumCard({
           </h3>
           <p className="mt-3 text-sm leading-relaxed text-mute">{description}</p>
         </div>
+        {!upcoming ? (
+          <div className="mt-6 border-t border-hairline pt-5">
+            <div className="font-mono-tech text-[10px] uppercase tracking-[0.3em] text-dim">
+              Listen
+            </div>
+            <div className="mt-3 grid grid-cols-3 gap-2">
+              {["Spotify", "Apple", "Bandcamp"].map((s) => (
+                <a
+                  key={s}
+                  href="#"
+                  aria-label={`Listen to ${title} on ${s} (link pending)`}
+                  className="border border-hairline-strong px-2 py-2 text-center font-mono-tech text-[9px] uppercase tracking-[0.25em] text-mute transition-colors duration-150 hover:border-red hover:text-ivory"
+                >
+                  {s}
+                </a>
+              ))}
+            </div>
+          </div>
+        ) : (
+          <div className="mt-6 border-t border-hairline pt-5">
+            <div className="flex items-center gap-3 font-mono-tech text-[10px] uppercase tracking-[0.3em] text-dim">
+              <span className="h-1.5 w-1.5 rounded-full bg-red" />
+              Pre-save launching soon
+            </div>
+          </div>
+        )}
       </div>
     </article>
   );
