@@ -41,12 +41,39 @@ export function Hero() {
         />
       </motion.div>
 
-      {/* Corner HUD hairline brackets */}
-      <div aria-hidden className="pointer-events-none absolute inset-6 hidden sm:block">
-        <span className="absolute left-0 top-0 h-6 w-6 border-l border-t border-hairline-strong" />
-        <span className="absolute right-0 top-0 h-6 w-6 border-r border-t border-hairline-strong" />
-        <span className="absolute left-0 bottom-0 h-6 w-6 border-l border-b border-hairline-strong" />
-        <span className="absolute right-0 bottom-0 h-6 w-6 border-r border-b border-hairline-strong" />
+      {/* Gold detail layer — hairline rules + accent dots + tick marks */}
+      <div aria-hidden className="pointer-events-none absolute inset-0 z-[1]">
+        <div className="absolute inset-y-0 left-[16%] w-px bg-gold/10" />
+        <div className="absolute inset-y-0 right-[16%] w-px bg-gold/10" />
+        {[
+          "left-[16%] top-[22%]",
+          "right-[16%] top-[22%]",
+          "left-[16%] bottom-[22%]",
+          "right-[16%] bottom-[22%]",
+        ].map((pos) => (
+          <span
+            key={pos}
+            className={`group/dot pointer-events-auto absolute ${pos} -translate-x-1/2 -translate-y-1/2`}
+          >
+            <span className="block h-1 w-1 rounded-full bg-gold/50 transition-all duration-500 group-hover/dot:h-1.5 group-hover/dot:w-1.5 group-hover/dot:bg-gold group-hover/dot:shadow-[0_0_0_3px_rgba(201,169,106,0.18)]" />
+          </span>
+        ))}
+        <div className="pointer-events-auto absolute inset-x-0 top-20 hidden justify-center gap-3 sm:flex">
+          {Array.from({ length: 9 }).map((_, i) => (
+            <span
+              key={i}
+              className="h-2 w-px bg-gold/15 transition-all duration-500 hover:h-3 hover:bg-gold"
+            />
+          ))}
+        </div>
+      </div>
+
+      {/* Corner HUD hairline brackets — gold on hover */}
+      <div className="pointer-events-none absolute inset-6 z-[2] hidden sm:block">
+        <span className="pointer-events-auto absolute left-0 top-0 h-6 w-6 border-l border-t border-hairline-strong transition-colors duration-500 hover:border-gold" />
+        <span className="pointer-events-auto absolute right-0 top-0 h-6 w-6 border-r border-t border-hairline-strong transition-colors duration-500 hover:border-gold" />
+        <span className="pointer-events-auto absolute left-0 bottom-0 h-6 w-6 border-l border-b border-hairline-strong transition-colors duration-500 hover:border-gold" />
+        <span className="pointer-events-auto absolute right-0 bottom-0 h-6 w-6 border-r border-b border-hairline-strong transition-colors duration-500 hover:border-gold" />
       </div>
 
       {/* Mono telemetry rail */}
@@ -55,7 +82,10 @@ export function Hero() {
           <span aria-hidden className="inline-block h-1.5 w-1.5 rounded-full bg-red" />
           SYS_ARC · 29.76°N / 95.37°W
         </span>
-        <span>REV_2014 // ONLINE</span>
+        <span className="inline-flex items-center gap-2">
+          <span aria-hidden className="h-px w-6 bg-gold/60" />
+          REV_2014 // ONLINE
+        </span>
       </div>
 
       <motion.div
