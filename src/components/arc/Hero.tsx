@@ -138,7 +138,7 @@ export function Hero() {
           <img
             src={logoAsset.url}
             alt="A.R.C. — Artists Respecting Community"
-            className="mx-auto w-full drop-shadow-[0_20px_60px_rgba(212,175,55,0.35)]"
+            className="mx-auto w-full"
             width={520}
             height={320}
           />
