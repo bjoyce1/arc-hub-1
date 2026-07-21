@@ -129,8 +129,12 @@ export function AlbumCard({
   description: string;
 }) {
   const upcoming = status.toLowerCase().includes("coming");
+  const { handlers, rippleLayer } = useTapRipple({ color: "var(--gold)", haptic: 10 });
   return (
-    <article className="group relative overflow-hidden rounded-2xl border border-border bg-card transition-all duration-500 hover:-translate-y-1 hover:border-gold/60 hover:shadow-[0_30px_80px_-30px_var(--gold)]">
+    <article
+      {...handlers}
+      className="group relative overflow-hidden rounded-2xl border border-border bg-card transition-all duration-500 hover:-translate-y-1 hover:border-gold/60 hover:shadow-[0_30px_80px_-30px_var(--gold)] active:scale-[0.98] active:transition-transform active:duration-150"
+    >
       <div className="relative aspect-square overflow-hidden">
         <img
           src={cover}
