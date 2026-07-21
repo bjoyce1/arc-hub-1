@@ -1,9 +1,10 @@
 import { Link } from "@tanstack/react-router";
-import { motion, useScroll, useTransform, useMotionValue, useSpring, useMotionTemplate } from "framer-motion";
+import { motion, useScroll, useTransform, useMotionValue, useSpring } from "framer-motion";
 import { useEffect, useRef } from "react";
 import { ArrowRight, Play } from "lucide-react";
 import skyline from "@/assets/skyline-hero.jpg";
 import logoAsset from "@/assets/arc-logo.png.asset.json";
+
 
 export function Hero() {
   const ref = useRef<HTMLDivElement>(null);
