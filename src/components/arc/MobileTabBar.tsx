@@ -64,7 +64,7 @@ function TabItem({
         {active && (
           <motion.span
             layoutId="tab-indicator"
-            className="absolute inset-x-6 top-0 h-0.5 rounded-full bg-blood-gradient shadow-[0_0_10px_var(--blood)]"
+            className="absolute inset-x-6 top-0 h-0.5 rounded-full bg-blood-gradient"
             transition={{ type: "spring", stiffness: 500, damping: 35 }}
           />
         )}

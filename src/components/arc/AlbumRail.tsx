@@ -134,7 +134,7 @@ export function AlbumCard({
   return (
     <article
       {...handlers}
-      className="group relative overflow-hidden rounded-2xl border border-border bg-card transition-all duration-500 hover:-translate-y-1 hover:border-gold/60 hover:shadow-[0_30px_80px_-30px_var(--gold)] active:scale-[0.98] active:transition-transform active:duration-150"
+      className="group relative overflow-hidden rounded-2xl border border-border bg-card transition-all duration-500 hover:-translate-y-1 hover:border-gold/40 active:scale-[0.98] active:transition-transform active:duration-150"
     >
       <div className="relative aspect-square overflow-hidden">
         <img
@@ -145,14 +145,14 @@ export function AlbumCard({
           width={1024}
           height={1024}
         />
-        {/* Gold sheen sweep on hover */}
+        {/* Subtle gold sheen sweep on hover */}
         <div
           aria-hidden
-          className="pointer-events-none absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-gold/25 to-transparent transition-transform duration-1000 group-hover:translate-x-full"
+          className="pointer-events-none absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-ivory/10 to-transparent transition-transform duration-1000 group-hover:translate-x-full"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/40 to-transparent opacity-70 transition-opacity duration-500 group-hover:opacity-90" />
         {upcoming && (
-          <span className="absolute left-4 top-4 rounded-full bg-gold-gradient px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-ink shadow-lg">
+          <span className="absolute left-4 top-4 rounded-full bg-gold-gradient px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-ink">
             {status}
           </span>
         )}

@@ -1,9 +1,10 @@
 import { Link } from "@tanstack/react-router";
-import { motion, useScroll, useTransform, useMotionValue, useSpring, useMotionTemplate } from "framer-motion";
+import { motion, useScroll, useTransform, useMotionValue, useSpring } from "framer-motion";
 import { useEffect, useRef } from "react";
 import { ArrowRight, Play } from "lucide-react";
 import skyline from "@/assets/skyline-hero.jpg";
 import logoAsset from "@/assets/arc-logo.png.asset.json";
+
 
 export function Hero() {
   const ref = useRef<HTMLDivElement>(null);
@@ -16,18 +17,11 @@ export function Hero() {
   const contentOpacity = useTransform(scrollYProgress, [0, 0.75], [1, 0]);
   const logoY = useTransform(scrollYProgress, [0, 1], [0, -40]);
 
-  // Mouse-tracked spotlight
-  const mx = useMotionValue(50);
-  const my = useMotionValue(35);
-  const smx = useSpring(mx, { stiffness: 60, damping: 20, mass: 0.6 });
-  const smy = useSpring(my, { stiffness: 60, damping: 20, mass: 0.6 });
-  const spotlight = useMotionTemplate`radial-gradient(600px circle at ${smx}% ${smy}%, oklch(0.78 0.14 85 / 0.28), transparent 55%)`;
-
-  // Magnetic tilt on logo (mouse-driven)
+  // Subtle magnetic tilt on logo (mouse-driven)
   const tiltX = useMotionValue(0);
   const tiltY = useMotionValue(0);
-  const rotX = useSpring(useTransform(tiltY, [-1, 1], [8, -8]), { stiffness: 120, damping: 15 });
-  const rotY = useSpring(useTransform(tiltX, [-1, 1], [-8, 8]), { stiffness: 120, damping: 15 });
+  const rotX = useSpring(useTransform(tiltY, [-1, 1], [5, -5]), { stiffness: 120, damping: 18 });
+  const rotY = useSpring(useTransform(tiltX, [-1, 1], [-5, 5]), { stiffness: 120, damping: 18 });
 
   useEffect(() => {
     const onMove = (e: MouseEvent) => {
@@ -36,14 +30,13 @@ export function Hero() {
       const r = el.getBoundingClientRect();
       const x = (e.clientX - r.left) / r.width;
       const y = (e.clientY - r.top) / r.height;
-      mx.set(x * 100);
-      my.set(y * 100);
       tiltX.set(x * 2 - 1);
       tiltY.set(y * 2 - 1);
     };
     window.addEventListener("pointermove", onMove);
     return () => window.removeEventListener("pointermove", onMove);
-  }, [mx, my, tiltX, tiltY]);
+  }, [tiltX, tiltY]);
+
 
   return (
     <section
@@ -66,37 +59,18 @@ export function Hero() {
         <div className="absolute inset-0 bg-gradient-to-b from-ink/60 via-ink/70 to-ink" />
       </motion.div>
 
-      {/* Rotating aurora conic — replaces the old breathing glow */}
-      <motion.div
-        aria-hidden
-        className="pointer-events-none absolute left-1/2 top-1/2 -z-0 h-[95vw] w-[95vw] -translate-x-1/2 -translate-y-1/2 rounded-full opacity-25 blur-3xl mix-blend-screen"
-        style={{
-          background:
-            "conic-gradient(from 0deg, transparent 0deg, var(--gold) 60deg, transparent 130deg, var(--blood) 200deg, transparent 280deg, var(--gold-light) 340deg, transparent 360deg)",
-        }}
-        animate={{ rotate: 360 }}
-        transition={{ duration: 40, ease: "linear", repeat: Infinity }}
-      />
-
-      {/* Mouse-tracked spotlight */}
-      <motion.div
-        aria-hidden
-        className="pointer-events-none absolute inset-0 -z-0"
-        style={{ background: spotlight }}
-      />
-
-      {/* Tech grid overlay — sits over the background, under the content */}
+      {/* Tech grid overlay — refined, subtle */}
       <motion.div
         aria-hidden
         style={{
-          y: useTransform(scrollYProgress, [0, 1], [0, 80]),
+          y: useTransform(scrollYProgress, [0, 1], [0, 60]),
           backgroundImage:
-            "linear-gradient(to right, rgba(212,175,55,0.35) 1px, transparent 1px), linear-gradient(to bottom, rgba(212,175,55,0.35) 1px, transparent 1px)",
-          backgroundSize: "64px 64px",
+            "linear-gradient(to right, rgba(212,175,55,0.10) 1px, transparent 1px), linear-gradient(to bottom, rgba(212,175,55,0.10) 1px, transparent 1px)",
+          backgroundSize: "72px 72px",
           WebkitMaskImage:
-            "radial-gradient(ellipse at center, black 45%, transparent 100%)",
+            "radial-gradient(ellipse at center, black 40%, transparent 95%)",
           maskImage:
-            "radial-gradient(ellipse at center, black 45%, transparent 100%)",
+            "radial-gradient(ellipse at center, black 40%, transparent 95%)",
         }}
         className="pointer-events-none absolute inset-0 z-[1]"
       />
@@ -104,8 +78,8 @@ export function Hero() {
         aria-hidden
         style={{
           backgroundImage:
-            "linear-gradient(to right, rgba(245,241,232,0.07) 1px, transparent 1px), linear-gradient(to bottom, rgba(245,241,232,0.07) 1px, transparent 1px)",
-          backgroundSize: "16px 16px",
+            "linear-gradient(to right, rgba(245,241,232,0.04) 1px, transparent 1px), linear-gradient(to bottom, rgba(245,241,232,0.04) 1px, transparent 1px)",
+          backgroundSize: "18px 18px",
           WebkitMaskImage:
             "radial-gradient(ellipse 75% 65% at 50% 50%, black 20%, transparent 85%)",
           maskImage:
@@ -114,35 +88,23 @@ export function Hero() {
         className="pointer-events-none absolute inset-0 z-[1]"
       />
 
-      {/* Corner HUD brackets */}
-      <div aria-hidden className="pointer-events-none absolute inset-4 z-[2] hidden sm:block">
-        <span className="absolute left-0 top-0 h-6 w-6 border-l border-t border-gold/40" />
-        <span className="absolute right-0 top-0 h-6 w-6 border-r border-t border-gold/40" />
-        <span className="absolute left-0 bottom-0 h-6 w-6 border-l border-b border-gold/40" />
-        <span className="absolute right-0 bottom-0 h-6 w-6 border-r border-b border-gold/40" />
+      {/* Corner HUD brackets — refined hairlines */}
+      <div aria-hidden className="pointer-events-none absolute inset-6 z-[2] hidden sm:block">
+        <span className="absolute left-0 top-0 h-8 w-8 border-l border-t border-gold/30" />
+        <span className="absolute right-0 top-0 h-8 w-8 border-r border-t border-gold/30" />
+        <span className="absolute left-0 bottom-0 h-8 w-8 border-l border-b border-gold/30" />
+        <span className="absolute right-0 bottom-0 h-8 w-8 border-r border-b border-gold/30" />
       </div>
 
-      {/* Mono telemetry — corners (positioned below the sticky nav) */}
-      <div aria-hidden className="pointer-events-none absolute inset-x-6 top-24 z-10 hidden items-center justify-between text-[10px] uppercase tracking-[0.35em] text-ivory/50 sm:flex font-mono-tech">
+      {/* Mono telemetry — corners */}
+      <div aria-hidden className="pointer-events-none absolute inset-x-8 top-24 z-10 hidden items-center justify-between text-[10px] uppercase tracking-[0.35em] text-ivory/40 sm:flex font-mono-tech">
         <span className="flex items-center gap-2">
-          <span className="inline-block h-1.5 w-1.5 rounded-full bg-blood-light shadow-[0_0_10px_var(--blood-light)]" />
+          <span className="inline-block h-1 w-1 rounded-full bg-blood-light" />
           SYS_ARC // 29.7604°N · 95.3698°W
         </span>
-        <span className="text-gold/70">REV_2014 — ONLINE</span>
+        <span className="text-gold/60">REV_2014 — ONLINE</span>
       </div>
 
-      {/* Fine scan line */}
-      <motion.div
-        aria-hidden
-        className="pointer-events-none absolute inset-x-0 z-0 h-24 opacity-[0.07]"
-        style={{
-          background:
-            "linear-gradient(to bottom, transparent, var(--gold-light), transparent)",
-        }}
-        initial={{ y: "-20%" }}
-        animate={{ y: "120vh" }}
-        transition={{ duration: 9, ease: "easeInOut", repeat: Infinity, repeatDelay: 3 }}
-      />
 
       <motion.div
         style={{ opacity: contentOpacity, y: contentY }}
@@ -154,14 +116,12 @@ export function Hero() {
           transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
           className="mb-6 flex justify-center"
         >
-          <span className="group inline-flex items-center gap-2 rounded-sm border border-gold/40 bg-ink/60 px-4 py-1.5 text-[10px] uppercase tracking-[0.35em] text-gold backdrop-blur transition-colors hover:border-gold font-mono-tech">
-            <span className="relative flex h-1.5 w-1.5">
-              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-blood-light opacity-75" />
-              <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-blood-light shadow-[0_0_10px_var(--blood-light)]" />
-            </span>
+          <span className="group inline-flex items-center gap-2.5 rounded-sm border border-gold/30 bg-ink/60 px-4 py-1.5 text-[10px] uppercase tracking-[0.35em] text-gold/90 backdrop-blur transition-colors hover:border-gold/60 font-mono-tech">
+            <span className="inline-block h-1 w-1 rounded-full bg-blood-light" />
             [ EST_2014 · HOUSTON_TX ]
           </span>
         </motion.div>
+
 
         <motion.div
           initial={{ opacity: 0, scale: 0.92 }}
@@ -178,7 +138,7 @@ export function Hero() {
           <img
             src={logoAsset.url}
             alt="A.R.C. — Artists Respecting Community"
-            className="mx-auto w-full drop-shadow-[0_20px_60px_rgba(212,175,55,0.35)]"
+            className="mx-auto w-full"
             width={520}
             height={320}
           />
@@ -212,19 +172,20 @@ export function Hero() {
         >
           <Link
             to="/mission"
-            className="group relative inline-flex w-full items-center justify-center gap-2 overflow-hidden rounded-full bg-gold-gradient px-8 py-4 text-sm font-bold uppercase tracking-widest text-ink transition-all hover:scale-105 hover:shadow-[0_10px_40px_-5px_rgba(212,175,55,0.6)] sm:w-auto"
+            className="group relative inline-flex w-full items-center justify-center gap-2 overflow-hidden rounded-full bg-gold-gradient px-8 py-4 text-sm font-bold uppercase tracking-widest text-ink transition-transform duration-300 hover:-translate-y-0.5 sm:w-auto"
           >
-            <span className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-ivory/40 to-transparent transition-transform duration-700 group-hover:translate-x-full" />
+            <span className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-ivory/30 to-transparent transition-transform duration-700 group-hover:translate-x-full" />
             <span className="relative">Our Mission</span>
             <ArrowRight className="relative h-4 w-4 transition-transform group-hover:translate-x-1" />
           </Link>
           <Link
             to="/music"
-            className="group inline-flex w-full items-center justify-center gap-2 rounded-full border border-gold/50 bg-ink/40 px-8 py-4 text-sm font-bold uppercase tracking-widest text-ivory backdrop-blur transition-all hover:border-gold hover:bg-ink/60 hover:shadow-[0_10px_40px_-15px_var(--blood)] sm:w-auto"
+            className="group inline-flex w-full items-center justify-center gap-2 rounded-full border border-ivory/20 bg-ink/40 px-8 py-4 text-sm font-bold uppercase tracking-widest text-ivory backdrop-blur transition-colors duration-300 hover:border-gold/60 hover:bg-ink/60 sm:w-auto"
           >
             <Play className="h-4 w-4 fill-gold text-gold transition-transform group-hover:scale-110" />
             The Music
           </Link>
+
         </motion.div>
       </motion.div>
 
