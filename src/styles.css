@@ -270,16 +270,16 @@
 
 @utility tech-grid-fine {
   background-image:
-    linear-gradient(to right, oklch(0.96 0.01 90 / 0.035) 1px, transparent 1px),
-    linear-gradient(to bottom, oklch(0.96 0.01 90 / 0.035) 1px, transparent 1px);
-  background-size: 14px 14px;
-  mask-image: radial-gradient(ellipse 70% 60% at 50% 45%, black 20%, transparent 80%);
-  -webkit-mask-image: radial-gradient(ellipse 70% 60% at 50% 45%, black 20%, transparent 80%);
+    linear-gradient(to right, oklch(0.96 0.01 90 / 0.06) 1px, transparent 1px),
+    linear-gradient(to bottom, oklch(0.96 0.01 90 / 0.06) 1px, transparent 1px);
+  background-size: 16px 16px;
+  mask-image: radial-gradient(ellipse 75% 65% at 50% 50%, black 20%, transparent 85%);
+  -webkit-mask-image: radial-gradient(ellipse 75% 65% at 50% 50%, black 20%, transparent 85%);
 }
 
 @keyframes grid-drift {
   from { background-position: 0 0; }
-  to { background-position: 56px 56px; }
+  to { background-position: 64px 64px; }
 }
 
 @utility tech-grid-drift {
