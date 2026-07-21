@@ -172,19 +172,20 @@ export function Hero() {
         >
           <Link
             to="/mission"
-            className="group relative inline-flex w-full items-center justify-center gap-2 overflow-hidden rounded-full bg-gold-gradient px-8 py-4 text-sm font-bold uppercase tracking-widest text-ink transition-all hover:scale-105 hover:shadow-[0_10px_40px_-5px_rgba(212,175,55,0.6)] sm:w-auto"
+            className="group relative inline-flex w-full items-center justify-center gap-2 overflow-hidden rounded-full bg-gold-gradient px-8 py-4 text-sm font-bold uppercase tracking-widest text-ink transition-transform duration-300 hover:-translate-y-0.5 sm:w-auto"
           >
-            <span className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-ivory/40 to-transparent transition-transform duration-700 group-hover:translate-x-full" />
+            <span className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-ivory/30 to-transparent transition-transform duration-700 group-hover:translate-x-full" />
             <span className="relative">Our Mission</span>
             <ArrowRight className="relative h-4 w-4 transition-transform group-hover:translate-x-1" />
           </Link>
           <Link
             to="/music"
-            className="group inline-flex w-full items-center justify-center gap-2 rounded-full border border-gold/50 bg-ink/40 px-8 py-4 text-sm font-bold uppercase tracking-widest text-ivory backdrop-blur transition-all hover:border-gold hover:bg-ink/60 hover:shadow-[0_10px_40px_-15px_var(--blood)] sm:w-auto"
+            className="group inline-flex w-full items-center justify-center gap-2 rounded-full border border-ivory/20 bg-ink/40 px-8 py-4 text-sm font-bold uppercase tracking-widest text-ivory backdrop-blur transition-colors duration-300 hover:border-gold/60 hover:bg-ink/60 sm:w-auto"
           >
             <Play className="h-4 w-4 fill-gold text-gold transition-transform group-hover:scale-110" />
             The Music
           </Link>
+
         </motion.div>
       </motion.div>
 
