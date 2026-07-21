@@ -253,6 +253,43 @@
   animation: float-y 6s ease-in-out infinite;
 }
 
+/* Tech grid overlay — layers over the existing hero background */
+@utility tech-grid {
+  background-image:
+    linear-gradient(to right, oklch(0.78 0.14 85 / 0.18) 1px, transparent 1px),
+    linear-gradient(to bottom, oklch(0.78 0.14 85 / 0.18) 1px, transparent 1px);
+  background-size: 64px 64px;
+  background-position: center center;
+  mask-image: radial-gradient(ellipse 90% 80% at 50% 50%, black 40%, transparent 95%);
+  -webkit-mask-image: radial-gradient(ellipse 90% 80% at 50% 50%, black 40%, transparent 95%);
+}
+  background-position: center center;
+  mask-image: radial-gradient(ellipse 85% 75% at 50% 45%, black 30%, transparent 85%);
+  -webkit-mask-image: radial-gradient(ellipse 85% 75% at 50% 45%, black 30%, transparent 85%);
+}
+
+@utility tech-grid-fine {
+  background-image:
+    linear-gradient(to right, oklch(0.96 0.01 90 / 0.06) 1px, transparent 1px),
+    linear-gradient(to bottom, oklch(0.96 0.01 90 / 0.06) 1px, transparent 1px);
+  background-size: 16px 16px;
+  mask-image: radial-gradient(ellipse 75% 65% at 50% 50%, black 20%, transparent 85%);
+  -webkit-mask-image: radial-gradient(ellipse 75% 65% at 50% 50%, black 20%, transparent 85%);
+}
+
+@keyframes grid-drift {
+  from { background-position: 0 0; }
+  to { background-position: 64px 64px; }
+}
+
+@utility tech-grid-drift {
+  animation: grid-drift 30s linear infinite;
+}
+
+@utility font-mono-tech {
+  font-family: "JetBrains Mono", "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+
 @keyframes tap-ripple {
   0% { transform: scale(0); opacity: 0.4; }
   60% { opacity: 0.25; }

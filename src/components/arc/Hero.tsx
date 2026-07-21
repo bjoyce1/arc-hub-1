@@ -85,10 +85,56 @@ export function Hero() {
         style={{ background: spotlight }}
       />
 
+      {/* Tech grid overlay — sits over the background, under the content */}
+      <motion.div
+        aria-hidden
+        style={{
+          y: useTransform(scrollYProgress, [0, 1], [0, 80]),
+          backgroundImage:
+            "linear-gradient(to right, rgba(212,175,55,0.35) 1px, transparent 1px), linear-gradient(to bottom, rgba(212,175,55,0.35) 1px, transparent 1px)",
+          backgroundSize: "64px 64px",
+          WebkitMaskImage:
+            "radial-gradient(ellipse at center, black 45%, transparent 100%)",
+          maskImage:
+            "radial-gradient(ellipse at center, black 45%, transparent 100%)",
+        }}
+        className="pointer-events-none absolute inset-0 z-[1]"
+      />
+      <div
+        aria-hidden
+        style={{
+          backgroundImage:
+            "linear-gradient(to right, rgba(245,241,232,0.07) 1px, transparent 1px), linear-gradient(to bottom, rgba(245,241,232,0.07) 1px, transparent 1px)",
+          backgroundSize: "16px 16px",
+          WebkitMaskImage:
+            "radial-gradient(ellipse 75% 65% at 50% 50%, black 20%, transparent 85%)",
+          maskImage:
+            "radial-gradient(ellipse 75% 65% at 50% 50%, black 20%, transparent 85%)",
+        }}
+        className="pointer-events-none absolute inset-0 z-[1]"
+      />
+
+      {/* Corner HUD brackets */}
+      <div aria-hidden className="pointer-events-none absolute inset-4 z-[2] hidden sm:block">
+        <span className="absolute left-0 top-0 h-6 w-6 border-l border-t border-gold/40" />
+        <span className="absolute right-0 top-0 h-6 w-6 border-r border-t border-gold/40" />
+        <span className="absolute left-0 bottom-0 h-6 w-6 border-l border-b border-gold/40" />
+        <span className="absolute right-0 bottom-0 h-6 w-6 border-r border-b border-gold/40" />
+      </div>
+
+      {/* Mono telemetry — corners (positioned below the sticky nav) */}
+      <div aria-hidden className="pointer-events-none absolute inset-x-6 top-24 z-10 hidden items-center justify-between text-[10px] uppercase tracking-[0.35em] text-ivory/50 sm:flex font-mono-tech">
+        <span className="flex items-center gap-2">
+          <span className="inline-block h-1.5 w-1.5 rounded-full bg-blood-light shadow-[0_0_10px_var(--blood-light)]" />
+          SYS_ARC // 29.7604°N · 95.3698°W
+        </span>
+        <span className="text-gold/70">REV_2014 — ONLINE</span>
+      </div>
+
       {/* Fine scan line */}
       <motion.div
         aria-hidden
-        className="pointer-events-none absolute inset-x-0 -z-0 h-24 opacity-[0.07]"
+        className="pointer-events-none absolute inset-x-0 z-0 h-24 opacity-[0.07]"
         style={{
           background:
             "linear-gradient(to bottom, transparent, var(--gold-light), transparent)",
@@ -108,12 +154,12 @@ export function Hero() {
           transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
           className="mb-6 flex justify-center"
         >
-          <span className="group inline-flex items-center gap-2 rounded-full border border-gold/40 bg-ink/60 px-4 py-1.5 text-xs uppercase tracking-[0.3em] text-gold backdrop-blur transition-colors hover:border-gold">
+          <span className="group inline-flex items-center gap-2 rounded-sm border border-gold/40 bg-ink/60 px-4 py-1.5 text-[10px] uppercase tracking-[0.35em] text-gold backdrop-blur transition-colors hover:border-gold font-mono-tech">
             <span className="relative flex h-1.5 w-1.5">
               <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-blood-light opacity-75" />
               <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-blood-light shadow-[0_0_10px_var(--blood-light)]" />
             </span>
-            Est. 2014 · Houston, TX
+            [ EST_2014 · HOUSTON_TX ]
           </span>
         </motion.div>
 
@@ -187,9 +233,9 @@ export function Hero() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.2 }}
-        className="pointer-events-none absolute bottom-6 left-1/2 z-10 flex -translate-x-1/2 flex-col items-center gap-2 text-[10px] uppercase tracking-[0.4em] text-ivory/50"
+        className="pointer-events-none absolute bottom-6 left-1/2 z-10 flex -translate-x-1/2 flex-col items-center gap-2 text-[10px] uppercase tracking-[0.4em] text-ivory/50 font-mono-tech"
       >
-        <span>Scroll</span>
+        <span>{"// SCROLL"}</span>
         <span className="relative block h-8 w-px overflow-hidden bg-ivory/20">
           <motion.span
             className="absolute inset-x-0 top-0 block h-3 bg-gold"
