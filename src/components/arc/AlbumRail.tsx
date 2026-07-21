@@ -2,6 +2,7 @@ import useEmblaCarousel from "embla-carousel-react";
 import { motion } from "framer-motion";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { useCallback, useEffect, useState } from "react";
+import { useTapRipple } from "@/hooks/use-tap-ripple";
 import cover1Asset from "@/assets/album-time-to-rise.png.asset.json";
 const cover1 = cover1Asset.url;
 import cover2Asset from "@/assets/album-ready-revolution.png.asset.json";
@@ -165,6 +166,7 @@ export function AlbumCard({
       <div className="p-5">
         <p className="text-sm leading-relaxed text-muted-foreground">{description}</p>
       </div>
+      {rippleLayer}
     </article>
   );
 }
