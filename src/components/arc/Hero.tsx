@@ -91,12 +91,12 @@ export function Hero() {
         style={{
           y: useTransform(scrollYProgress, [0, 1], [0, 80]),
           backgroundImage:
-            "linear-gradient(to right, rgba(212,175,55,0.22) 1px, transparent 1px), linear-gradient(to bottom, rgba(212,175,55,0.22) 1px, transparent 1px)",
+            "linear-gradient(to right, rgba(212,175,55,0.35) 1px, transparent 1px), linear-gradient(to bottom, rgba(212,175,55,0.35) 1px, transparent 1px)",
           backgroundSize: "64px 64px",
           WebkitMaskImage:
-            "radial-gradient(ellipse 90% 80% at 50% 50%, black 40%, transparent 95%)",
+            "radial-gradient(ellipse at center, black 45%, transparent 100%)",
           maskImage:
-            "radial-gradient(ellipse 90% 80% at 50% 50%, black 40%, transparent 95%)",
+            "radial-gradient(ellipse at center, black 45%, transparent 100%)",
         }}
         className="pointer-events-none absolute inset-0 z-[1]"
       />
