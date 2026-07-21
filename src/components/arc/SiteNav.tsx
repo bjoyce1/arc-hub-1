@@ -47,7 +47,7 @@ export function SiteNav() {
           <Link to="/" className="group flex items-center gap-3">
             <img
               src={logoAsset.url}
-              alt="A.R.C. — Artists Respecting Community"
+              alt="A.R.C.  -  Artists Respecting Community"
               className="h-10 w-auto transition-transform duration-500 group-hover:scale-105 sm:h-12"
               width={80}
               height={48}

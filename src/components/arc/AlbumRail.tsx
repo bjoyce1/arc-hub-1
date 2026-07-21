@@ -17,7 +17,7 @@ export const ALBUMS = [
     status: "Released",
     cover: cover1,
     description:
-      "The debut collective project — a call to consciousness and craft from the founding pioneers.",
+      "The debut collective project  -  a call to consciousness and craft from the founding pioneers.",
   },
   {
     title: "Ready for the Revolution",
@@ -33,7 +33,7 @@ export const ALBUMS = [
     status: "Coming 2026",
     cover: cover3,
     description:
-      "The next chapter — twelve years in, the movement returns with a project built for the moment.",
+      "The next chapter  -  twelve years in, the movement returns with a project built for the moment.",
   },
 ] as const;
 
@@ -139,7 +139,7 @@ export function AlbumCard({
       <div className="relative aspect-square overflow-hidden">
         <img
           src={cover}
-          alt={`${title} — album cover`}
+          alt={`${title}  -  album cover`}
           className="h-full w-full object-cover transition-transform duration-[1200ms] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-110"
           loading="lazy"
           width={1024}
