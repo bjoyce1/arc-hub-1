@@ -256,17 +256,14 @@
 /* Tech grid overlay — layers over the existing hero background */
 @utility tech-grid {
   background-image:
-    linear-gradient(to right, oklch(0.78 0.14 85 / 0.18) 1px, transparent 1px),
-    linear-gradient(to bottom, oklch(0.78 0.14 85 / 0.18) 1px, transparent 1px);
-  background-size: 64px 64px;
+    linear-gradient(to right, oklch(0.78 0.14 85 / 0.10) 1px, transparent 1px),
+    linear-gradient(to bottom, oklch(0.78 0.14 85 / 0.10) 1px, transparent 1px);
+  background-size: 72px 72px;
   background-position: center center;
-  mask-image: radial-gradient(ellipse 90% 80% at 50% 50%, black 40%, transparent 95%);
-  -webkit-mask-image: radial-gradient(ellipse 90% 80% at 50% 50%, black 40%, transparent 95%);
+  mask-image: radial-gradient(ellipse 85% 75% at 50% 45%, black 30%, transparent 90%);
+  -webkit-mask-image: radial-gradient(ellipse 85% 75% at 50% 45%, black 30%, transparent 90%);
 }
-  background-position: center center;
-  mask-image: radial-gradient(ellipse 85% 75% at 50% 45%, black 30%, transparent 85%);
-  -webkit-mask-image: radial-gradient(ellipse 85% 75% at 50% 45%, black 30%, transparent 85%);
-}
+
 
 @utility tech-grid-fine {
   background-image:
