@@ -5,11 +5,11 @@ import { PageHeader } from "@/components/arc/PageHeader";
 export const Route = createFileRoute("/pioneers")({
   head: () => ({
     meta: [
-      { title: "Pioneers of A.R.C. — The Founding Members" },
+      { title: "Pioneers of A.R.C.  -  The Founding Members" },
       {
         name: "description",
         content:
-          "The veteran artists, producers, label owners, and DJs who founded A.R.C. in Houston — including K-Rino, O.G. Wickett Crickett, Ganxsta Nip, Cl'Che, Fiya, Zin, Murder One, and Mr. Cap.",
+          "The veteran artists, producers, label owners, and DJs who founded A.R.C. in Houston  -  including K-Rino, O.G. Wickett Crickett, Ganxsta Nip, Cl'Che, Fiya, Zin, Murder One, and Mr. Cap.",
       },
       { property: "og:title", content: "The Pioneers of A.R.C." },
       {

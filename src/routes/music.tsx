@@ -6,17 +6,17 @@ import { Reveal } from "@/components/arc/Reveal";
 export const Route = createFileRoute("/music")({
   head: () => ({
     meta: [
-      { title: "Music — A.R.C. Collective Albums" },
+      { title: "Music  -  A.R.C. Collective Albums" },
       {
         name: "description",
         content:
-          "The A.R.C. discography — Time to Rise, Ready for the Revolution, and the upcoming Sieze the Time, expected near the end of 2026.",
+          "The A.R.C. discography  -  Time to Rise, Ready for the Revolution, and the upcoming Sieze the Time, expected near the end of 2026.",
       },
       { property: "og:title", content: "A.R.C. Music" },
       {
         property: "og:description",
         content:
-          "Two albums released and a third on the way — the collective records of Artists Respecting Community.",
+          "Two albums released and a third on the way  -  the collective records of Artists Respecting Community.",
       },
     ],
   }),
@@ -29,7 +29,7 @@ function Music() {
       <PageHeader
         eyebrow="Discography"
         title={<>The <span className="text-gold-gradient">Records</span></>}
-        intro="Two full-length collective projects released. A third — Sieze the Time — expected near the end of 2026."
+        intro="Two full-length collective projects released. A third  -  Sieze the Time  -  expected near the end of 2026."
       />
 
       <section className="py-16 sm:py-24">
@@ -52,7 +52,7 @@ function Music() {
               Sieze the Time
             </h2>
             <p className="mt-6 text-base leading-relaxed text-ivory/80">
-              The third A.R.C. project — twelve years after the first meeting,
+              The third A.R.C. project  -  twelve years after the first meeting,
               the collective returns with a record built for this moment.
             </p>
           </Reveal>

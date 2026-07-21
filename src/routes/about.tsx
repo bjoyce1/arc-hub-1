@@ -5,13 +5,13 @@ import { Reveal } from "@/components/arc/Reveal";
 export const Route = createFileRoute("/about")({
   head: () => ({
     meta: [
-      { title: "About A.R.C. — The Origin of the Movement" },
+      { title: "About A.R.C.  -  The Origin of the Movement" },
       {
         name: "description",
         content:
-          "How A.R.C. began in 2014 — from a Chicago meeting with Minister Farrakhan to the founding of the Houston chapter led by K-Rino and Dr. Abdul Haleem Muhammad.",
+          "How A.R.C. began in 2014  -  from a Chicago meeting with Minister Farrakhan to the founding of the Houston chapter led by K-Rino and Dr. Abdul Haleem Muhammad.",
       },
-      { property: "og:title", content: "About A.R.C. — The Origin" },
+      { property: "og:title", content: "About A.R.C.  -  The Origin" },
       {
         property: "og:description",
         content:
@@ -31,7 +31,7 @@ const CHAPTERS = [
   {
     year: "The Charge",
     title: "Take it home.",
-    body: "Dr. Abdul Haleem Muhammad — the Southwest Student Regional Minister of the Nation of Islam — and other student Ministers in attendance were instructed by Min. Farrakhan to take what they had witnessed back to their respective cities and do the same.",
+    body: "Dr. Abdul Haleem Muhammad  -  the Southwest Student Regional Minister of the Nation of Islam  -  and other student Ministers in attendance were instructed by Min. Farrakhan to take what they had witnessed back to their respective cities and do the same.",
   },
   {
     year: "Houston",
@@ -41,12 +41,12 @@ const CHAPTERS = [
   {
     year: "The Founders",
     title: "The room takes shape.",
-    body: "Pioneers of the movement consisted of veteran artists, producers, label owners, and DJs — the Legendary O.G. Wickett Crickett, Ganxsta Nip, Cl'Che, Fiya the Media Mogul, Zin, Murder One, Mr. Cap, and K-Rino.",
+    body: "Pioneers of the movement consisted of veteran artists, producers, label owners, and DJs  -  the Legendary O.G. Wickett Crickett, Ganxsta Nip, Cl'Che, Fiya the Media Mogul, Zin, Murder One, Mr. Cap, and K-Rino.",
   },
   {
     year: "Today",
     title: "Twelve years, still moving.",
-    body: "Two albums released — Time to Rise and Ready for the Revolution — with a third, Sieze the Time, expected near the end of 2026. Twelve years of educating, organizing, and serving the city we love.",
+    body: "Two albums released  -  Time to Rise and Ready for the Revolution  -  with a third, Sieze the Time, expected near the end of 2026. Twelve years of educating, organizing, and serving the city we love.",
   },
 ];
 
@@ -56,7 +56,7 @@ function About() {
       <PageHeader
         eyebrow="Our Origin"
         title={<>The story of <span className="text-gold-gradient">A.R.C.</span></>}
-        intro="From a room in Chicago to a movement in Houston — how Artists Respecting Community was born and why it still matters."
+        intro="From a room in Chicago to a movement in Houston  -  how Artists Respecting Community was born and why it still matters."
       />
 
       <section className="py-16 sm:py-24">
@@ -91,7 +91,7 @@ function About() {
             <blockquote className="font-display text-3xl uppercase leading-tight text-ivory sm:text-5xl">
               &ldquo;With knowledge comes <span className="text-gold-gradient">great responsibility</span>.&rdquo;
             </blockquote>
-            <p className="mt-6 text-sm uppercase tracking-widest text-gold">— A.R.C.</p>
+            <p className="mt-6 text-sm uppercase tracking-widest text-gold"> -  A.R.C.</p>
           </Reveal>
         </div>
       </section>

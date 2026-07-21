@@ -11,7 +11,7 @@ import { Reveal } from "@/components/arc/Reveal";
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "Organization",
-  name: "A.R.C. — Artists Respecting Community",
+  name: "A.R.C.  -  Artists Respecting Community",
   alternateName: "Artists Respecting Community",
   foundingDate: "2014",
   foundingLocation: "Houston, TX",
@@ -22,17 +22,17 @@ const jsonLd = {
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "A.R.C. — Artists Respecting Community | Houston Movement Since 2014" },
+      { title: "A.R.C.  -  Artists Respecting Community | Houston Movement Since 2014" },
       {
         name: "description",
         content:
-          "The main hub for A.R.C. — Artists Respecting Community. A Houston-born movement of artists uniting for consciousness, ownership, and community action since 2014.",
+          "The main hub for A.R.C.  -  Artists Respecting Community. A Houston-born movement of artists uniting for consciousness, ownership, and community action since 2014.",
       },
-      { property: "og:title", content: "A.R.C. — Artists Respecting Community | Houston Movement Since 2014" },
+      { property: "og:title", content: "A.R.C.  -  Artists Respecting Community | Houston Movement Since 2014" },
       {
         property: "og:description",
         content:
-          "The main hub for A.R.C. — Artists Respecting Community. A Houston-born movement of artists uniting for consciousness, ownership, and community action since 2014.",
+          "The main hub for A.R.C.  -  Artists Respecting Community. A Houston-born movement of artists uniting for consciousness, ownership, and community action since 2014.",
       },
     ],
     scripts: [
@@ -46,7 +46,7 @@ const PILLARS = [
   {
     icon: Briefcase,
     title: "Business of Music",
-    body: "Educating artists on the business of music — protecting their art from an industry built to enrich itself, not its creators.",
+    body: "Educating artists on the business of music  -  protecting their art from an industry built to enrich itself, not its creators.",
   },
   {
     icon: Crown,
@@ -56,7 +56,7 @@ const PILLARS = [
   {
     icon: Radio,
     title: "Positive Content",
-    body: "Adding balance to the airwaves — releasing content that counters the negativity dominating radio, TV, and social media.",
+    body: "Adding balance to the airwaves  -  releasing content that counters the negativity dominating radio, TV, and social media.",
   },
   {
     icon: HandHeart,
@@ -113,13 +113,13 @@ function Home() {
             <div>
               <p className="text-xs uppercase tracking-[0.4em] text-gold">The Origin</p>
               <h2 className="mt-3 font-display text-4xl uppercase text-ivory sm:text-5xl md:text-6xl">
-                The movement that started in a room —
+                The movement that started in a room  - 
                 <span className="text-gold-gradient"> and never sat down.</span>
               </h2>
               <p className="mt-6 text-base leading-relaxed text-ivory/80 sm:text-lg">
                 Dr. Abdul Haleem Muhammad brought the charge back to Houston
                 and called on K-Rino to gather the city&rsquo;s music people.
-                Shortly after, the first A.R.C. meeting was held — pioneered
+                Shortly after, the first A.R.C. meeting was held  -  pioneered
                 by veteran artists, producers, label owners, and DJs.
               </p>
               <Link

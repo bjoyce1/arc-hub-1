@@ -7,7 +7,7 @@ import { Reveal } from "@/components/arc/Reveal";
 export const Route = createFileRoute("/contact")({
   head: () => ({
     meta: [
-      { title: "Contact A.R.C. — Reach the Movement" },
+      { title: "Contact A.R.C.  -  Reach the Movement" },
       {
         name: "description",
         content:
@@ -29,7 +29,7 @@ function Contact() {
 
   function submit(e: React.FormEvent) {
     e.preventDefault();
-    const subject = `[A.R.C.] ${form.topic} — ${form.name}`;
+    const subject = `[A.R.C.] ${form.topic}  -  ${form.name}`;
     const body = `Name: ${form.name}%0D%0AEmail: ${form.email}%0D%0ATopic: ${form.topic}%0D%0A%0D%0A${encodeURIComponent(form.message)}`;
     window.location.href = `mailto:info@arcmovement.org?subject=${encodeURIComponent(subject)}&body=${body}`;
     setSent(true);
@@ -114,7 +114,7 @@ function Contact() {
               >
                 {sent ? (
                   <>
-                    <Check className="h-4 w-4" /> Sent — check your email
+                    <Check className="h-4 w-4" /> Sent  -  check your email
                   </>
                 ) : (
                   <>

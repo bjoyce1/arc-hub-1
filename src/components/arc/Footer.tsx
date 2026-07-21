@@ -16,7 +16,7 @@ export function Footer() {
             <img src={logoAsset.url} alt="A.R.C." className="h-16 w-auto" />
             <p className="mt-4 max-w-sm text-sm text-muted-foreground">
               A movement of artists, producers, DJs, and label owners committed to
-              consciousness, ownership, and community — Houston, since 2014.
+              consciousness, ownership, and community  -  Houston, since 2014.
             </p>
           </div>
 
@@ -44,7 +44,7 @@ export function Footer() {
         </div>
 
         <div className="mt-12 flex flex-col items-start justify-between gap-4 border-t border-border pt-6 text-xs uppercase tracking-widest text-ivory/50 sm:flex-row sm:items-center">
-          <p>&copy; {new Date().getFullYear()} A.R.C. — Artists Respecting Community</p>
+          <p>&copy; {new Date().getFullYear()} A.R.C.  -  Artists Respecting Community</p>
           <p>Est. 2014 · Houston, TX</p>
         </div>
       </div>
