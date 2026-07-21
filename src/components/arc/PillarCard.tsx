@@ -84,6 +84,7 @@ export function PillarCard({ icon: Icon, title, body, index }: PillarCardProps) 
       <span className="pointer-events-none absolute bottom-4 right-4 font-display text-6xl leading-none text-gold/10 transition-all duration-500 group-hover:text-gold/30 group-hover:-translate-y-1">
         0{index + 1}
       </span>
+      {rippleLayer}
     </motion.article>
   );
 }
