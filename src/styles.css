@@ -49,6 +49,9 @@
   --color-gold-dark: var(--gold-dark);
   --color-ink: var(--ink);
   --color-ivory: var(--ivory);
+  --color-blood: var(--blood);
+  --color-blood-light: var(--blood-light);
+  --color-blood-dark: var(--blood-dark);
 
   --font-display: "Bebas Neue", "Anton", "Impact", sans-serif;
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
