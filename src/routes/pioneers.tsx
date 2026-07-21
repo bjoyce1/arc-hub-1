@@ -6,11 +6,11 @@ import heroPioneers from "@/assets/hero-pioneers.jpg";
 export const Route = createFileRoute("/pioneers")({
   head: () => ({
     meta: [
-      { title: "Pioneers of A.R.C.  -  The Founding Members" },
+      { title: "Pioneers of A.R.C. The Founding Members" },
       {
         name: "description",
         content:
-          "The veteran artists, producers, label owners, and DJs who founded A.R.C. in Houston  -  including K-Rino, O.G. Wickett Crickett, Ganxsta Nip, Cl'Che, Fiya, Zin, Murder One, and Mr. Cap.",
+          "The veteran artists, producers, label owners, and DJs who founded A.R.C. in Houston. K-Rino, O.G. Wickett Crickett, Ganxsta Nip, Cl'Che, Fiya, Zin, Murder One, and Mr. Cap.",
       },
       { property: "og:title", content: "The Pioneers of A.R.C." },
       {
@@ -24,14 +24,14 @@ export const Route = createFileRoute("/pioneers")({
 });
 
 const PIONEERS = [
-  { name: "O.G. Wickett Crickett", role: "Legendary DJ · Radio", tag: "Pioneer" },
-  { name: "Ganxsta Nip", role: "Artist · South Park Coalition", tag: "Artist" },
-  { name: "Cl'Che", role: "Artist", tag: "Artist" },
-  { name: "Fiya the Media Mogul", role: "Media · Culture", tag: "Media" },
-  { name: "Zin", role: "Artist · Producer", tag: "Artist" },
-  { name: "Murder One", role: "Artist", tag: "Artist" },
-  { name: "Mr. Cap", role: "Label · Executive", tag: "Executive" },
-  { name: "K-Rino", role: "Founder · Artist · SPC", tag: "Founder" },
+  { name: "K-Rino", role: "Founder · Artist · SPC", tag: "FOUNDER" },
+  { name: "O.G. Wickett Crickett", role: "Legendary DJ · Radio", tag: "PIONEER" },
+  { name: "Ganxsta Nip", role: "Artist · South Park Coalition", tag: "ARTIST" },
+  { name: "Cl'Che", role: "Artist", tag: "ARTIST" },
+  { name: "Fiya the Media Mogul", role: "Media · Culture", tag: "MEDIA" },
+  { name: "Zin", role: "Artist · Producer", tag: "ARTIST" },
+  { name: "Murder One", role: "Artist", tag: "ARTIST" },
+  { name: "Mr. Cap", role: "Label · Executive", tag: "EXECUTIVE" },
 ];
 
 function Pioneers() {
@@ -39,50 +39,43 @@ function Pioneers() {
     <>
       <PageHeader
         eyebrow="The Pioneers"
-        title={<>The <span className="text-gold-gradient">founders</span></>}
+        title="The founders"
         intro="Veteran artists, producers, label owners, and DJs who built the first room and set the standard for the movement."
         image={heroPioneers}
-        imageAlt="Silhouettes of eight figures standing under warm gold spotlights on a dark stage"
+        imageAlt="Silhouettes of figures under warm spotlights"
       />
 
       <section className="py-16 sm:py-24">
-        <div className="mx-auto max-w-7xl px-6">
-          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mx-auto max-w-5xl px-6">
+          <div className="flex items-center justify-between border-b border-hairline pb-4 font-mono-tech text-[10px] uppercase tracking-[0.3em] text-dim">
+            <span>Roster · {PIONEERS.length} pioneers</span>
+            <span>REV_2014</span>
+          </div>
+          <ul>
             {PIONEERS.map((p, i) => (
-              <motion.article
+              <motion.li
                 key={p.name}
-                initial={{ opacity: 0, y: 30 }}
+                initial={{ opacity: 0, y: 12 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-40px" }}
-                transition={{ duration: 0.6, delay: i * 0.05 }}
-                className="group relative overflow-hidden rounded-2xl border border-border bg-card p-6 transition-all hover:border-gold/50"
+                transition={{ duration: 0.5, delay: i * 0.04 }}
+                className="group grid grid-cols-[auto_1fr_auto] items-center gap-4 border-b border-hairline px-2 py-6 transition-colors duration-150 hover:bg-surface sm:grid-cols-[64px_1fr_140px_auto] sm:gap-8 sm:px-4 sm:py-8"
               >
-                <div
-                  aria-hidden
-                  className="absolute -right-16 -top-16 h-40 w-40 rounded-full opacity-0 blur-3xl transition-opacity group-hover:opacity-30"
-                  style={{ background: "var(--gradient-gold)" }}
-                />
-                <div className="relative">
-                  <div className="flex items-start justify-between">
-                    <span className="text-xs uppercase tracking-[0.3em] text-gold">
-                      {p.tag}
-                    </span>
-                    <span className="font-display text-2xl text-gold/30">
-                      0{i + 1}
-                    </span>
-                  </div>
-                  <h3 className="mt-6 font-display text-3xl uppercase leading-tight text-ivory sm:text-4xl">
-                    {p.name}
-                  </h3>
-                  <p className="mt-3 text-sm text-muted-foreground">{p.role}</p>
-                </div>
-                <div
-                  aria-hidden
-                  className="absolute inset-x-6 bottom-0 h-px bg-gold-gradient opacity-0 transition-opacity group-hover:opacity-100"
-                />
-              </motion.article>
+                <span className="font-mono-tech text-[11px] uppercase tracking-[0.3em] text-dim">
+                  {String(i + 1).padStart(2, "0")}
+                </span>
+                <span className="min-w-0 truncate text-2xl font-extrabold tracking-[-0.02em] text-ivory transition-colors group-hover:text-red sm:text-4xl">
+                  {p.name}
+                </span>
+                <span className="hidden font-mono-tech text-[10px] uppercase tracking-[0.28em] text-dim sm:block">
+                  {p.tag}
+                </span>
+                <span className="hidden text-right text-sm text-mute lg:block">
+                  {p.role}
+                </span>
+              </motion.li>
             ))}
-          </div>
+          </ul>
         </div>
       </section>
     </>
