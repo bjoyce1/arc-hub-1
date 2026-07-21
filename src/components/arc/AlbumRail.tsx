@@ -6,7 +6,8 @@ import cover1Asset from "@/assets/album-time-to-rise.png.asset.json";
 const cover1 = cover1Asset.url;
 import cover2Asset from "@/assets/album-ready-revolution.png.asset.json";
 const cover2 = cover2Asset.url;
-import cover3 from "@/assets/album-sieze-the-time.jpg";
+import cover3Asset from "@/assets/album-sieze-the-time.png.asset.json";
+const cover3 = cover3Asset.url;
 
 export const ALBUMS = [
   {
