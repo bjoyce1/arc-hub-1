@@ -74,7 +74,7 @@ export function Hero() {
           className="mx-auto max-w-3xl font-display text-4xl uppercase tracking-wide sm:text-6xl md:text-7xl"
         >
           <span className="text-gold-gradient">Artists</span>{" "}
-          <span className="text-ivory">Respecting</span>{" "}
+          <span className="text-blood-gradient">Respecting</span>{" "}
           <span className="text-gold-gradient">Community</span>
         </motion.h1>
 
