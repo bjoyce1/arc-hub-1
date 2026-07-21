@@ -17,18 +17,11 @@ export function Hero() {
   const contentOpacity = useTransform(scrollYProgress, [0, 0.75], [1, 0]);
   const logoY = useTransform(scrollYProgress, [0, 1], [0, -40]);
 
-  // Mouse-tracked spotlight
-  const mx = useMotionValue(50);
-  const my = useMotionValue(35);
-  const smx = useSpring(mx, { stiffness: 60, damping: 20, mass: 0.6 });
-  const smy = useSpring(my, { stiffness: 60, damping: 20, mass: 0.6 });
-  const spotlight = useMotionTemplate`radial-gradient(600px circle at ${smx}% ${smy}%, oklch(0.78 0.14 85 / 0.28), transparent 55%)`;
-
-  // Magnetic tilt on logo (mouse-driven)
+  // Subtle magnetic tilt on logo (mouse-driven)
   const tiltX = useMotionValue(0);
   const tiltY = useMotionValue(0);
-  const rotX = useSpring(useTransform(tiltY, [-1, 1], [8, -8]), { stiffness: 120, damping: 15 });
-  const rotY = useSpring(useTransform(tiltX, [-1, 1], [-8, 8]), { stiffness: 120, damping: 15 });
+  const rotX = useSpring(useTransform(tiltY, [-1, 1], [5, -5]), { stiffness: 120, damping: 18 });
+  const rotY = useSpring(useTransform(tiltX, [-1, 1], [-5, 5]), { stiffness: 120, damping: 18 });
 
   useEffect(() => {
     const onMove = (e: MouseEvent) => {
@@ -37,14 +30,13 @@ export function Hero() {
       const r = el.getBoundingClientRect();
       const x = (e.clientX - r.left) / r.width;
       const y = (e.clientY - r.top) / r.height;
-      mx.set(x * 100);
-      my.set(y * 100);
       tiltX.set(x * 2 - 1);
       tiltY.set(y * 2 - 1);
     };
     window.addEventListener("pointermove", onMove);
     return () => window.removeEventListener("pointermove", onMove);
-  }, [mx, my, tiltX, tiltY]);
+  }, [tiltX, tiltY]);
+
 
   return (
     <section
