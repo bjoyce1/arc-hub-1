@@ -4,6 +4,7 @@ import logoAsset from "@/assets/arc-logo.png.asset.json";
 export function Footer() {
   return (
     <footer className="relative overflow-hidden border-t border-border bg-ink pb-24 pt-16 lg:pb-16">
+      <div aria-hidden className="absolute inset-x-0 top-0 h-px bg-blood-gradient opacity-80" />
       <div
         aria-hidden
         className="pointer-events-none absolute -top-24 left-1/2 h-48 w-[80%] -translate-x-1/2 rounded-full opacity-20 blur-3xl"

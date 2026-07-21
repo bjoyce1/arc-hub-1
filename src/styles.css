@@ -49,6 +49,9 @@
   --color-gold-dark: var(--gold-dark);
   --color-ink: var(--ink);
   --color-ivory: var(--ivory);
+  --color-blood: var(--blood);
+  --color-blood-light: var(--blood-light);
+  --color-blood-dark: var(--blood-dark);
 
   --font-display: "Bebas Neue", "Anton", "Impact", sans-serif;
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
@@ -64,6 +67,11 @@
   --gold: oklch(0.78 0.14 85);       /* #D4AF37 */
   --gold-light: oklch(0.88 0.12 92); /* #F5D77A */
   --gold-dark: oklch(0.55 0.11 75);  /* #8B6F1F */
+
+  /* Blood-red accent — flag/banner ribbon, revolutionary energy */
+  --blood: oklch(0.52 0.20 27);       /* deep crimson */
+  --blood-light: oklch(0.62 0.22 27); /* signal red */
+  --blood-dark: oklch(0.38 0.16 27);  /* oxblood */
 
   /* Semantic tokens mapped to brand */
   --background: var(--ink);
@@ -88,7 +96,9 @@
 
   --gradient-gold: linear-gradient(135deg, var(--gold-dark) 0%, var(--gold) 45%, var(--gold-light) 100%);
   --gradient-gold-soft: linear-gradient(135deg, oklch(0.78 0.14 85 / 20%), oklch(0.88 0.12 92 / 5%));
+  --gradient-blood: linear-gradient(135deg, var(--blood-dark) 0%, var(--blood) 55%, var(--blood-light) 100%);
   --shadow-gold: 0 20px 60px -20px oklch(0.78 0.14 85 / 45%);
+  --shadow-blood: 0 20px 60px -20px oklch(0.52 0.20 27 / 45%);
   --shadow-elevated: 0 30px 80px -20px oklch(0 0 0 / 0.7);
 }
 
@@ -136,6 +146,18 @@
 
 @utility bg-gold-gradient {
   background: var(--gradient-gold);
+}
+
+@utility bg-blood-gradient {
+  background: var(--gradient-blood);
+}
+
+@utility text-blood-gradient {
+  background: var(--gradient-blood);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
 }
 
 @utility border-gold-gradient {

@@ -13,7 +13,7 @@ export function Ribbon({ items }: RibbonProps) {
             className="flex items-center gap-6 px-6 font-display text-2xl uppercase tracking-[0.15em] text-ink"
           >
             {item}
-            <span aria-hidden className="text-ink/60">◆</span>
+            <span aria-hidden style={{ color: "var(--blood-dark)" }}>◆</span>
           </span>
         ))}
       </div>

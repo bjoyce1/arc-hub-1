@@ -31,7 +31,7 @@ export function MobileTabBar() {
                 {active && (
                   <motion.span
                     layoutId="tab-indicator"
-                    className="absolute inset-x-6 top-0 h-0.5 rounded-full bg-gold-gradient"
+                    className="absolute inset-x-6 top-0 h-0.5 rounded-full bg-blood-gradient shadow-[0_0_10px_var(--blood)]"
                     transition={{ type: "spring", stiffness: 500, damping: 35 }}
                   />
                 )}

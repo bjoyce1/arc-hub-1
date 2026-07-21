@@ -42,6 +42,7 @@ export function SiteNav() {
             : "bg-transparent border-b border-transparent"
         }`}
       >
+        <div aria-hidden className="absolute inset-x-0 top-0 h-px bg-blood-gradient opacity-70" />
         <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6">
           <Link to="/" className="group flex items-center gap-3">
             <img

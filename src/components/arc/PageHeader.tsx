@@ -20,9 +20,11 @@ export function PageHeader({ eyebrow, title, intro }: PageHeaderProps) {
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          className="text-xs uppercase tracking-[0.4em] text-gold"
+          className="inline-flex items-center gap-2 text-xs uppercase tracking-[0.4em] text-gold"
         >
+          <span aria-hidden className="h-1 w-1 rounded-full bg-blood-light" />
           {eyebrow}
+          <span aria-hidden className="h-1 w-1 rounded-full bg-blood-light" />
         </motion.p>
         <motion.h1
           initial={{ opacity: 0, y: 20 }}
