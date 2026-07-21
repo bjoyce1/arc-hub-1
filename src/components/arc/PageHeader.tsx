@@ -12,22 +12,18 @@ interface PageHeaderProps {
 export function PageHeader({ eyebrow, title, intro, image, imageAlt = "" }: PageHeaderProps) {
   const ref = useRef<HTMLElement>(null);
   const reduce = useReducedMotion();
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ["start start", "end start"],
-  });
-  const y = useTransform(scrollYProgress, [0, 1], ["0%", reduce ? "0%" : "25%"]);
-  const scale = useTransform(scrollYProgress, [0, 1], [1, reduce ? 1 : 1.1]);
+  const { scrollYProgress } = useScroll({ target: ref, offset: ["start start", "end start"] });
+  const y = useTransform(scrollYProgress, [0, 1], ["0%", reduce ? "0%" : "18%"]);
 
   return (
     <header
       ref={ref}
-      className="relative overflow-hidden border-b border-border pt-40 pb-16 sm:pt-48 sm:pb-24"
+      className="relative overflow-hidden border-b border-hairline pt-40 pb-20 sm:pt-48 sm:pb-28"
     >
       {image && (
         <motion.div
           aria-hidden
-          style={{ y, scale }}
+          style={{ y }}
           className="pointer-events-none absolute inset-0 -z-10"
         >
           <img
@@ -36,42 +32,41 @@ export function PageHeader({ eyebrow, title, intro, image, imageAlt = "" }: Page
             width={1920}
             height={1080}
             loading="eager"
-            className="h-full w-full object-cover opacity-40"
+            className="h-full w-full object-cover opacity-25"
+            style={{ filter: "grayscale(1) contrast(1.05)" }}
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-ink/70 via-ink/60 to-background" />
-          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_0%,var(--ink)_85%)]" />
+          <div className="absolute inset-0 bg-ink/60" />
+          <div
+            aria-hidden
+            className="absolute inset-x-0 bottom-0 h-1/2"
+            style={{ background: "linear-gradient(to bottom, transparent, var(--ink))" }}
+          />
         </motion.div>
       )}
-      <div
-        aria-hidden
-        className="pointer-events-none absolute left-1/2 top-0 h-[500px] w-[900px] -translate-x-1/2 rounded-full opacity-20 blur-3xl"
-        style={{ background: "radial-gradient(circle, var(--gold) 0%, transparent 70%)" }}
-      />
+
       <div className="relative mx-auto max-w-4xl px-6 text-center">
-        <motion.p
-          initial={{ opacity: 0, y: 10 }}
+        <motion.div
+          initial={{ opacity: 0, y: 8 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          className="inline-flex items-center gap-2 text-xs uppercase tracking-[0.4em] text-gold"
+          className="flex justify-center"
         >
-          <span aria-hidden className="h-1 w-1 rounded-full bg-blood-light" />
-          {eyebrow}
-          <span aria-hidden className="h-1 w-1 rounded-full bg-blood-light" />
-        </motion.p>
+          <span className="chapter-pill">{eyebrow}</span>
+        </motion.div>
         <motion.h1
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.1 }}
-          className="mt-4 font-display text-5xl uppercase text-ivory sm:text-6xl md:text-7xl"
+          transition={{ duration: 0.6, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
+          className="mt-6 text-5xl font-extrabold tracking-[-0.035em] text-ivory sm:text-7xl md:text-[5rem]"
         >
           {title}
         </motion.h1>
         {intro && (
           <motion.p
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.25 }}
-            className="mx-auto mt-6 max-w-2xl text-balance text-lg text-ivory/80"
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="mx-auto mt-6 max-w-2xl text-balance text-base leading-relaxed text-mute sm:text-lg"
           >
             {intro}
           </motion.p>

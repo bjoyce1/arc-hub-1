@@ -2,48 +2,39 @@ import useEmblaCarousel from "embla-carousel-react";
 import { motion } from "framer-motion";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { useCallback, useEffect, useState } from "react";
-import { useTapRipple } from "@/hooks/use-tap-ripple";
 import cover1Asset from "@/assets/album-time-to-rise.png.asset.json";
-const cover1 = cover1Asset.url;
 import cover2Asset from "@/assets/album-ready-revolution.png.asset.json";
-const cover2 = cover2Asset.url;
 import cover3Asset from "@/assets/album-sieze-the-time.png.asset.json";
-const cover3 = cover3Asset.url;
 
 export const ALBUMS = [
   {
     title: "Time to Rise",
-    year: "Vol. I",
+    year: "VOL. I",
     status: "Released",
-    cover: cover1,
+    cover: cover1Asset.url,
     description:
-      "The debut collective project  -  a call to consciousness and craft from the founding pioneers.",
+      "The debut collective project. A call to consciousness and craft from the founding pioneers.",
   },
   {
     title: "Ready for the Revolution",
-    year: "Vol. II",
+    year: "VOL. II",
     status: "Released",
-    cover: cover2,
+    cover: cover2Asset.url,
     description:
-      "The follow-up statement: ownership, education, and unapologetic art in service of the community.",
+      "The follow-up statement. Ownership, education, and unapologetic art in service of the community.",
   },
   {
     title: "Sieze the Time",
-    year: "Vol. III",
+    year: "VOL. III",
     status: "Coming 2026",
-    cover: cover3,
+    cover: cover3Asset.url,
     description:
-      "The next chapter  -  twelve years in, the movement returns with a project built for the moment.",
+      "The next chapter. Twelve years in, the movement returns with a project built for the moment.",
   },
 ] as const;
 
 export function AlbumRail() {
-  const [emblaRef, embla] = useEmblaCarousel({
-    loop: false,
-    align: "start",
-    dragFree: false,
-    containScroll: "trimSnaps",
-  });
+  const [emblaRef, embla] = useEmblaCarousel({ loop: false, align: "start", containScroll: "trimSnaps" });
   const [canPrev, setCanPrev] = useState(false);
   const [canNext, setCanNext] = useState(true);
 
@@ -67,32 +58,20 @@ export function AlbumRail() {
 
   return (
     <div className="relative">
-      <div className="mb-6 flex items-end justify-between gap-4 px-4 sm:px-0">
+      <div className="mb-8 flex items-end justify-between gap-4 px-4 sm:px-0">
         <div>
-          <p className="text-xs uppercase tracking-[0.3em] text-gold">Discography</p>
-          <h2 className="mt-2 font-display text-4xl uppercase text-ivory sm:text-5xl">
+          <span className="chapter-pill">Discography</span>
+          <h2 className="mt-5 text-4xl font-extrabold tracking-[-0.03em] text-ivory sm:text-5xl">
             The Collective Records
           </h2>
         </div>
         <div className="hidden gap-2 sm:flex">
-          <button
-            type="button"
-            aria-label="Previous"
-            onClick={scrollPrev}
-            disabled={!canPrev}
-            className="grid h-11 w-11 place-items-center rounded-full border border-border bg-card text-ivory transition disabled:opacity-30 hover:border-gold hover:text-gold"
-          >
-            <ChevronLeft className="h-5 w-5" />
-          </button>
-          <button
-            type="button"
-            aria-label="Next"
-            onClick={scrollNext}
-            disabled={!canNext}
-            className="grid h-11 w-11 place-items-center rounded-full border border-border bg-card text-ivory transition disabled:opacity-30 hover:border-gold hover:text-gold"
-          >
-            <ChevronRight className="h-5 w-5" />
-          </button>
+          <NavBtn onClick={scrollPrev} disabled={!canPrev} label="Previous">
+            <ChevronLeft className="h-4 w-4" />
+          </NavBtn>
+          <NavBtn onClick={scrollNext} disabled={!canNext} label="Next">
+            <ChevronRight className="h-4 w-4" />
+          </NavBtn>
         </div>
       </div>
 
@@ -101,10 +80,10 @@ export function AlbumRail() {
           {ALBUMS.map((album, i) => (
             <motion.div
               key={album.title}
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: i * 0.1 }}
+              transition={{ duration: 0.5, delay: i * 0.08 }}
               className="min-w-0 flex-[0_0_82%] pl-4 sm:flex-[0_0_50%] lg:flex-[0_0_34%]"
             >
               <AlbumCard {...album} />
@@ -113,6 +92,30 @@ export function AlbumRail() {
         </div>
       </div>
     </div>
+  );
+}
+
+function NavBtn({
+  children,
+  onClick,
+  disabled,
+  label,
+}: {
+  children: React.ReactNode;
+  onClick: () => void;
+  disabled: boolean;
+  label: string;
+}) {
+  return (
+    <button
+      type="button"
+      aria-label={label}
+      onClick={onClick}
+      disabled={disabled}
+      className="grid h-10 w-10 place-items-center border border-hairline-strong text-ivory transition-colors duration-150 disabled:opacity-30 hover:bg-surface-2"
+    >
+      {children}
+    </button>
   );
 }
 
@@ -130,43 +133,35 @@ export function AlbumCard({
   description: string;
 }) {
   const upcoming = status.toLowerCase().includes("coming");
-  const { handlers, rippleLayer } = useTapRipple({ color: "var(--gold)", haptic: 10 });
   return (
-    <article
-      {...handlers}
-      className="group relative overflow-hidden rounded-2xl border border-border bg-card transition-all duration-500 hover:-translate-y-1 hover:border-gold/40 active:scale-[0.98] active:transition-transform active:duration-150"
-    >
-      <div className="relative aspect-square overflow-hidden">
+    <article className="group flex h-full flex-col overflow-hidden border border-hairline bg-surface transition-colors duration-200 hover:border-hairline-strong">
+      <div className="relative aspect-square overflow-hidden bg-ink">
         <img
           src={cover}
-          alt={`${title}  -  album cover`}
-          className="h-full w-full object-cover transition-transform duration-[1200ms] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-110"
+          alt={`${title} album cover`}
+          className="h-full w-full object-cover transition-transform duration-[900ms] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-[1.03]"
           loading="lazy"
           width={1024}
           height={1024}
         />
-        {/* Subtle gold sheen sweep on hover */}
-        <div
-          aria-hidden
-          className="pointer-events-none absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-ivory/10 to-transparent transition-transform duration-1000 group-hover:translate-x-full"
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/40 to-transparent opacity-70 transition-opacity duration-500 group-hover:opacity-90" />
         {upcoming && (
-          <span className="absolute left-4 top-4 rounded-full bg-gold-gradient px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-ink">
+          <span className="absolute left-3 top-3 border border-hairline-strong bg-ink/80 px-2.5 py-1 font-mono-tech text-[10px] uppercase tracking-[0.28em] text-red backdrop-blur">
             {status}
           </span>
         )}
-        <div className="absolute bottom-4 left-4 right-4 transition-transform duration-500 group-hover:-translate-y-1">
-          <p className="text-xs uppercase tracking-[0.3em] text-gold">{year}</p>
-          <h3 className="mt-1 font-display text-3xl uppercase leading-none text-ivory">
+      </div>
+      <div className="flex flex-1 flex-col justify-between p-5">
+        <div>
+          <div className="flex items-center justify-between font-mono-tech text-[10px] uppercase tracking-[0.3em] text-dim">
+            <span>{year}</span>
+            <span>{status}</span>
+          </div>
+          <h3 className="mt-4 text-2xl font-extrabold tracking-[-0.02em] text-ivory sm:text-[1.6rem]">
             {title}
           </h3>
+          <p className="mt-3 text-sm leading-relaxed text-mute">{description}</p>
         </div>
       </div>
-      <div className="p-5">
-        <p className="text-sm leading-relaxed text-muted-foreground">{description}</p>
-      </div>
-      {rippleLayer}
     </article>
   );
 }
