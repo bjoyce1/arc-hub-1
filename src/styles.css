@@ -148,6 +148,18 @@
   background: var(--gradient-gold);
 }
 
+@utility bg-blood-gradient {
+  background: var(--gradient-blood);
+}
+
+@utility text-blood-gradient {
+  background: var(--gradient-blood);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
 @utility border-gold-gradient {
   border: 1px solid transparent;
   background:
