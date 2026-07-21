@@ -137,9 +137,12 @@ function RootComponent() {
   return (
     <QueryClientProvider client={queryClient}>
       <div className="relative min-h-screen bg-background">
+        <ScrollProgress />
         <SiteNav />
         <main className="pb-20 lg:pb-0">
-          <Outlet />
+          <PageTransition>
+            <Outlet />
+          </PageTransition>
         </main>
         <Footer />
         <MobileTabBar />
