@@ -88,13 +88,34 @@ export function Hero() {
       {/* Tech grid overlay — sits over the background, under the content */}
       <motion.div
         aria-hidden
-        style={{ y: useTransform(scrollYProgress, [0, 1], [0, 80]) }}
-        className="pointer-events-none absolute inset-0 z-0 tech-grid tech-grid-drift"
+        style={{
+          y: useTransform(scrollYProgress, [0, 1], [0, 80]),
+          backgroundImage:
+            "linear-gradient(to right, rgba(212,175,55,0.22) 1px, transparent 1px), linear-gradient(to bottom, rgba(212,175,55,0.22) 1px, transparent 1px)",
+          backgroundSize: "64px 64px",
+          WebkitMaskImage:
+            "radial-gradient(ellipse 90% 80% at 50% 50%, black 40%, transparent 95%)",
+          maskImage:
+            "radial-gradient(ellipse 90% 80% at 50% 50%, black 40%, transparent 95%)",
+        }}
+        className="pointer-events-none absolute inset-0 z-[1]"
       />
-      <div aria-hidden className="pointer-events-none absolute inset-0 z-0 tech-grid-fine" />
+      <div
+        aria-hidden
+        style={{
+          backgroundImage:
+            "linear-gradient(to right, rgba(245,241,232,0.07) 1px, transparent 1px), linear-gradient(to bottom, rgba(245,241,232,0.07) 1px, transparent 1px)",
+          backgroundSize: "16px 16px",
+          WebkitMaskImage:
+            "radial-gradient(ellipse 75% 65% at 50% 50%, black 20%, transparent 85%)",
+          maskImage:
+            "radial-gradient(ellipse 75% 65% at 50% 50%, black 20%, transparent 85%)",
+        }}
+        className="pointer-events-none absolute inset-0 z-[1]"
+      />
 
       {/* Corner HUD brackets */}
-      <div aria-hidden className="pointer-events-none absolute inset-4 z-0 hidden sm:block">
+      <div aria-hidden className="pointer-events-none absolute inset-4 z-[2] hidden sm:block">
         <span className="absolute left-0 top-0 h-6 w-6 border-l border-t border-gold/40" />
         <span className="absolute right-0 top-0 h-6 w-6 border-r border-t border-gold/40" />
         <span className="absolute left-0 bottom-0 h-6 w-6 border-l border-b border-gold/40" />
