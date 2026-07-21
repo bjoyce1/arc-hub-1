@@ -32,13 +32,20 @@ export function PillarCard({ icon: Icon, title, body, index }: PillarCardProps) 
     my.set(0);
   };
 
+  const { handlers: tapHandlers, rippleLayer } = useTapRipple({
+    color: "var(--blood)",
+    haptic: 12,
+  });
+
   return (
     <motion.article
       ref={ref}
       onPointerMove={onMove}
       onPointerLeave={onLeave}
+      onPointerDown={tapHandlers.onPointerDown}
       initial={{ opacity: 0, y: 40 }}
       whileInView={{ opacity: 1, y: 0 }}
+      whileTap={{ scale: 0.98 }}
       viewport={{ once: true, margin: "-80px" }}
       transition={{ duration: 0.6, delay: index * 0.1, ease: [0.22, 1, 0.36, 1] }}
       style={{ rotateX: rx, rotateY: ry, transformPerspective: 1000 }}
