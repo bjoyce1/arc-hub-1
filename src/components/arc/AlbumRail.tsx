@@ -2,6 +2,7 @@ import useEmblaCarousel from "embla-carousel-react";
 import { motion } from "framer-motion";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { useCallback, useEffect, useState } from "react";
+import { useTapRipple } from "@/hooks/use-tap-ripple";
 import cover1Asset from "@/assets/album-time-to-rise.png.asset.json";
 const cover1 = cover1Asset.url;
 import cover2Asset from "@/assets/album-ready-revolution.png.asset.json";
@@ -129,8 +130,12 @@ export function AlbumCard({
   description: string;
 }) {
   const upcoming = status.toLowerCase().includes("coming");
+  const { handlers, rippleLayer } = useTapRipple({ color: "var(--gold)", haptic: 10 });
   return (
-    <article className="group relative overflow-hidden rounded-2xl border border-border bg-card transition-all duration-500 hover:-translate-y-1 hover:border-gold/60 hover:shadow-[0_30px_80px_-30px_var(--gold)]">
+    <article
+      {...handlers}
+      className="group relative overflow-hidden rounded-2xl border border-border bg-card transition-all duration-500 hover:-translate-y-1 hover:border-gold/60 hover:shadow-[0_30px_80px_-30px_var(--gold)] active:scale-[0.98] active:transition-transform active:duration-150"
+    >
       <div className="relative aspect-square overflow-hidden">
         <img
           src={cover}
@@ -161,6 +166,7 @@ export function AlbumCard({
       <div className="p-5">
         <p className="text-sm leading-relaxed text-muted-foreground">{description}</p>
       </div>
+      {rippleLayer}
     </article>
   );
 }
