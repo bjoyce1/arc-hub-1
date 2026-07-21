@@ -4,7 +4,8 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 import { useCallback, useEffect, useState } from "react";
 import cover1Asset from "@/assets/album-time-to-rise.png.asset.json";
 const cover1 = cover1Asset.url;
-import cover2 from "@/assets/album-ready-revolution.jpg";
+import cover2Asset from "@/assets/album-ready-revolution.png.asset.json";
+const cover2 = cover2Asset.url;
 import cover3 from "@/assets/album-sieze-the-time.jpg";
 
 export const ALBUMS = [
