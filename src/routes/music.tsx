@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { PageHeader } from "@/components/arc/PageHeader";
 import { AlbumCard, ALBUMS } from "@/components/arc/AlbumRail";
 import { Reveal } from "@/components/arc/Reveal";
+import heroMusic from "@/assets/hero-music.jpg";
 
 export const Route = createFileRoute("/music")({
   head: () => ({
@@ -30,6 +31,8 @@ function Music() {
         eyebrow="Discography"
         title={<>The <span className="text-gold-gradient">Records</span></>}
         intro="Two full-length collective projects released. A third  -  Sieze the Time  -  expected near the end of 2026."
+        image={heroMusic}
+        imageAlt="Vintage gold microphone lit against a black studio backdrop with soft bokeh"
       />
 
       <section className="py-16 sm:py-24">

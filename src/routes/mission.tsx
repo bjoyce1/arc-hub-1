@@ -3,6 +3,7 @@ import { Briefcase, Crown, Radio, HandHeart } from "lucide-react";
 import { PageHeader } from "@/components/arc/PageHeader";
 import { PillarCard } from "@/components/arc/PillarCard";
 import { Reveal } from "@/components/arc/Reveal";
+import heroMission from "@/assets/hero-mission.jpg";
 
 export const Route = createFileRoute("/mission")({
   head: () => ({
@@ -54,6 +55,8 @@ function Mission() {
         eyebrow="Our Mission"
         title={<>What we&rsquo;re <span className="text-gold-gradient">building</span></>}
         intro="A.R.C. exists to educate, elevate, and organize  -  building an organization people can reach out to for the music industry and for the community."
+        image={heroMission}
+        imageAlt="Monolithic gold-edged pillars rising from fog with a faint Houston skyline behind them"
       />
 
       <section className="py-16 sm:py-24">

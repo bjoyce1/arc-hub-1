@@ -1,15 +1,47 @@
-import { motion } from "framer-motion";
-import type { ReactNode } from "react";
+import { motion, useScroll, useTransform, useReducedMotion } from "framer-motion";
+import { useRef, type ReactNode } from "react";
 
 interface PageHeaderProps {
   eyebrow: string;
   title: ReactNode;
   intro?: ReactNode;
+  image?: string;
+  imageAlt?: string;
 }
 
-export function PageHeader({ eyebrow, title, intro }: PageHeaderProps) {
+export function PageHeader({ eyebrow, title, intro, image, imageAlt = "" }: PageHeaderProps) {
+  const ref = useRef<HTMLElement>(null);
+  const reduce = useReducedMotion();
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start start", "end start"],
+  });
+  const y = useTransform(scrollYProgress, [0, 1], ["0%", reduce ? "0%" : "25%"]);
+  const scale = useTransform(scrollYProgress, [0, 1], [1, reduce ? 1 : 1.1]);
+
   return (
-    <header className="relative overflow-hidden border-b border-border pt-40 pb-16 sm:pt-48 sm:pb-24">
+    <header
+      ref={ref}
+      className="relative overflow-hidden border-b border-border pt-40 pb-16 sm:pt-48 sm:pb-24"
+    >
+      {image && (
+        <motion.div
+          aria-hidden
+          style={{ y, scale }}
+          className="pointer-events-none absolute inset-0 -z-10"
+        >
+          <img
+            src={image}
+            alt={imageAlt}
+            width={1920}
+            height={1080}
+            loading="eager"
+            className="h-full w-full object-cover opacity-40"
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-ink/70 via-ink/60 to-background" />
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_0%,var(--ink)_85%)]" />
+        </motion.div>
+      )}
       <div
         aria-hidden
         className="pointer-events-none absolute left-1/2 top-0 h-[500px] w-[900px] -translate-x-1/2 rounded-full opacity-20 blur-3xl"

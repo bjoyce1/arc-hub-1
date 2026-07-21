@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { Utensils, Shirt, Trash2, Users, School, MessageCircle } from "lucide-react";
 import { PageHeader } from "@/components/arc/PageHeader";
 import { Reveal } from "@/components/arc/Reveal";
+import heroCommunity from "@/assets/hero-community.jpg";
 
 export const Route = createFileRoute("/community")({
   head: () => ({
@@ -63,6 +64,8 @@ function Community() {
         eyebrow="Community"
         title={<>On the <span className="text-gold-gradient">ground</span></>}
         intro="The mission is accompanied by consistent community efforts  -  because respect is earned in the neighborhood, not in the studio."
+        image={heroCommunity}
+        imageAlt="Houston neighborhood street at dusk with warm streetlight glow and downtown skyline in the distance"
       />
 
       <section className="py-16 sm:py-24">
