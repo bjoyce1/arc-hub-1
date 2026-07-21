@@ -93,8 +93,14 @@
   --red: #E4322B;
   --red-dim: #B0231D;
 
-  /* Rare secondary — growth / affirmation only */
+  /* Subtle secondary accent — antique gold, used sparingly for warmth */
+  --gold: #C9A96A;
+  --gold-light: #D9BE83;
+  --gold-dark: #9C7F45;
+
+  /* Rare tertiary — growth / affirmation only */
   --green: #3FB27F;
+
 
   /* Semantic tokens (shadcn map) */
   --background: var(--ink);
