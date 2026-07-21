@@ -1,5 +1,5 @@
 import { motion, useReducedMotion } from "framer-motion";
-import { useMemo } from "react";
+import { useEffect, useMemo, useState } from "react";
 
 interface ParticlesProps {
   count?: number;
