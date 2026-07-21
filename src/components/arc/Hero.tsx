@@ -85,10 +85,35 @@ export function Hero() {
         style={{ background: spotlight }}
       />
 
+      {/* Tech grid overlay — sits over the background, under the content */}
+      <motion.div
+        aria-hidden
+        style={{ y: useTransform(scrollYProgress, [0, 1], [0, 80]) }}
+        className="pointer-events-none absolute inset-0 z-0 tech-grid tech-grid-drift"
+      />
+      <div aria-hidden className="pointer-events-none absolute inset-0 z-0 tech-grid-fine" />
+
+      {/* Corner HUD brackets */}
+      <div aria-hidden className="pointer-events-none absolute inset-4 z-0 hidden sm:block">
+        <span className="absolute left-0 top-0 h-6 w-6 border-l border-t border-gold/40" />
+        <span className="absolute right-0 top-0 h-6 w-6 border-r border-t border-gold/40" />
+        <span className="absolute left-0 bottom-0 h-6 w-6 border-l border-b border-gold/40" />
+        <span className="absolute right-0 bottom-0 h-6 w-6 border-r border-b border-gold/40" />
+      </div>
+
+      {/* Mono telemetry — corners */}
+      <div aria-hidden className="pointer-events-none absolute inset-x-6 top-6 z-10 hidden items-center justify-between text-[10px] uppercase tracking-[0.35em] text-ivory/40 sm:flex font-mono-tech">
+        <span className="flex items-center gap-2">
+          <span className="inline-block h-1.5 w-1.5 rounded-full bg-blood-light shadow-[0_0_10px_var(--blood-light)]" />
+          SYS_ARC // 29.7604°N · 95.3698°W
+        </span>
+        <span className="text-gold/60">REV_2014 — ONLINE</span>
+      </div>
+
       {/* Fine scan line */}
       <motion.div
         aria-hidden
-        className="pointer-events-none absolute inset-x-0 -z-0 h-24 opacity-[0.07]"
+        className="pointer-events-none absolute inset-x-0 z-0 h-24 opacity-[0.07]"
         style={{
           background:
             "linear-gradient(to bottom, transparent, var(--gold-light), transparent)",
