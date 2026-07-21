@@ -2,7 +2,7 @@ import { Link } from "@tanstack/react-router";
 import { motion, useScroll, useTransform, useReducedMotion } from "framer-motion";
 import { useRef } from "react";
 import { ArrowRight } from "lucide-react";
-import skyline from "@/assets/skyline-hero.jpg";
+import skylineAsset from "@/assets/skyline-hero-gold.png.asset.json";
 import logoAsset from "@/assets/arc-logo.png.asset.json";
 import { Typewriter } from "@/components/arc/Typewriter";
 
