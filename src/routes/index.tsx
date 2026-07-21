@@ -28,11 +28,11 @@ export const Route = createFileRoute("/")({
         content:
           "The main hub for A.R.C. — Artists Respecting Community. A Houston-born movement of artists uniting for consciousness, ownership, and community action since 2014.",
       },
-      { property: "og:title", content: "A.R.C. — Artists Respecting Community" },
+      { property: "og:title", content: "A.R.C. — Artists Respecting Community | Houston Movement Since 2014" },
       {
         property: "og:description",
         content:
-          "Houston-born movement uniting artists around consciousness, ownership, and community action since 2014.",
+          "The main hub for A.R.C. — Artists Respecting Community. A Houston-born movement of artists uniting for consciousness, ownership, and community action since 2014.",
       },
     ],
     scripts: [
