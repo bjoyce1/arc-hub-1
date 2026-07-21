@@ -101,13 +101,13 @@ export function Hero() {
         <span className="absolute right-0 bottom-0 h-6 w-6 border-r border-b border-gold/40" />
       </div>
 
-      {/* Mono telemetry — corners */}
-      <div aria-hidden className="pointer-events-none absolute inset-x-6 top-6 z-10 hidden items-center justify-between text-[10px] uppercase tracking-[0.35em] text-ivory/40 sm:flex font-mono-tech">
+      {/* Mono telemetry — corners (positioned below the sticky nav) */}
+      <div aria-hidden className="pointer-events-none absolute inset-x-6 top-24 z-10 hidden items-center justify-between text-[10px] uppercase tracking-[0.35em] text-ivory/50 sm:flex font-mono-tech">
         <span className="flex items-center gap-2">
           <span className="inline-block h-1.5 w-1.5 rounded-full bg-blood-light shadow-[0_0_10px_var(--blood-light)]" />
           SYS_ARC // 29.7604°N · 95.3698°W
         </span>
-        <span className="text-gold/60">REV_2014 — ONLINE</span>
+        <span className="text-gold/70">REV_2014 — ONLINE</span>
       </div>
 
       {/* Fine scan line */}
