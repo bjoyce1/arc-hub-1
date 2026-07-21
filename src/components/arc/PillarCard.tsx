@@ -2,6 +2,7 @@ import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
 import type { LucideIcon } from "lucide-react";
 import type { PointerEvent } from "react";
 import { useRef } from "react";
+import { useTapRipple } from "@/hooks/use-tap-ripple";
 
 interface PillarCardProps {
   icon: LucideIcon;
