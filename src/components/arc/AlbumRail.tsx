@@ -130,23 +130,28 @@ export function AlbumCard({
 }) {
   const upcoming = status.toLowerCase().includes("coming");
   return (
-    <article className="group relative overflow-hidden rounded-2xl border border-border bg-card">
+    <article className="group relative overflow-hidden rounded-2xl border border-border bg-card transition-all duration-500 hover:-translate-y-1 hover:border-gold/60 hover:shadow-[0_30px_80px_-30px_var(--gold)]">
       <div className="relative aspect-square overflow-hidden">
         <img
           src={cover}
           alt={`${title} — album cover`}
-          className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+          className="h-full w-full object-cover transition-transform duration-[1200ms] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-110"
           loading="lazy"
           width={1024}
           height={1024}
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/40 to-transparent opacity-70" />
+        {/* Gold sheen sweep on hover */}
+        <div
+          aria-hidden
+          className="pointer-events-none absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-gold/25 to-transparent transition-transform duration-1000 group-hover:translate-x-full"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/40 to-transparent opacity-70 transition-opacity duration-500 group-hover:opacity-90" />
         {upcoming && (
-          <span className="absolute left-4 top-4 rounded-full bg-gold-gradient px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-ink">
+          <span className="absolute left-4 top-4 rounded-full bg-gold-gradient px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-ink shadow-lg">
             {status}
           </span>
         )}
-        <div className="absolute bottom-4 left-4 right-4">
+        <div className="absolute bottom-4 left-4 right-4 transition-transform duration-500 group-hover:-translate-y-1">
           <p className="text-xs uppercase tracking-[0.3em] text-gold">{year}</p>
           <h3 className="mt-1 font-display text-3xl uppercase leading-none text-ivory">
             {title}
