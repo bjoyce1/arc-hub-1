@@ -3,10 +3,11 @@ interface RibbonProps {
 }
 
 export function Ribbon({ items }: RibbonProps) {
+  // Duplicate the list so the -50% translate is seamless.
   const doubled = [...items, ...items];
   return (
-    <div className="relative overflow-hidden border-y border-gold/40 bg-gold-gradient py-4">
-      <div className="marquee flex whitespace-nowrap">
+    <div className="group relative overflow-hidden border-y border-gold/40 bg-gold-gradient py-4">
+      <div className="marquee flex whitespace-nowrap group-hover:[animation-play-state:paused]">
         {doubled.map((item, i) => (
           <span
             key={i}
@@ -17,6 +18,17 @@ export function Ribbon({ items }: RibbonProps) {
           </span>
         ))}
       </div>
+      {/* Edge fades */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-y-0 left-0 w-16"
+        style={{ background: "linear-gradient(to right, var(--gold-dark), transparent)" }}
+      />
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-y-0 right-0 w-16"
+        style={{ background: "linear-gradient(to left, var(--gold-dark), transparent)" }}
+      />
     </div>
   );
 }
