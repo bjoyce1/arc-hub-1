@@ -2,7 +2,8 @@ import useEmblaCarousel from "embla-carousel-react";
 import { motion } from "framer-motion";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { useCallback, useEffect, useState } from "react";
-import cover1 from "@/assets/album-time-to-rise.jpg";
+import cover1Asset from "@/assets/album-time-to-rise.png.asset.json";
+const cover1 = cover1Asset.url;
 import cover2 from "@/assets/album-ready-revolution.jpg";
 import cover3 from "@/assets/album-sieze-the-time.jpg";
 
