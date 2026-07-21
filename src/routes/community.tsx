@@ -2,22 +2,23 @@ import { createFileRoute } from "@tanstack/react-router";
 import { Utensils, Shirt, Trash2, Users, School, MessageCircle } from "lucide-react";
 import { PageHeader } from "@/components/arc/PageHeader";
 import { Reveal } from "@/components/arc/Reveal";
+import { ChapterLabel } from "@/components/arc/ChapterLabel";
 import heroCommunity from "@/assets/hero-community.jpg";
 
 export const Route = createFileRoute("/community")({
   head: () => ({
     meta: [
-      { title: "Community  -  On-the-Ground Work with A.R.C." },
+      { title: "Community On the Ground Work with A.R.C." },
       {
         name: "description",
         content:
-          "A.R.C. community programs  -  feeding the homeless, clothing drives, neighborhood clean-ups, conflict resolution, and speaking at schools.",
+          "A.R.C. community programs. Feeding the homeless, clothing drives, neighborhood clean-ups, conflict resolution, and speaking at schools.",
       },
       { property: "og:title", content: "A.R.C. Community" },
       {
         property: "og:description",
         content:
-          "On-the-ground work: feeding, clothing drives, clean-ups, conflict resolution, and school talks.",
+          "On the ground work. Feeding, clothing drives, clean-ups, conflict resolution, and school talks.",
       },
     ],
   }),
@@ -28,7 +29,7 @@ const PROGRAMS = [
   {
     icon: Utensils,
     title: "Feeding the Community",
-    body: "Feeding the homeless and less fortunate  -  showing up consistently for the people the industry forgets.",
+    body: "Feeding the homeless and less fortunate. Showing up consistently for the people the industry forgets.",
   },
   {
     icon: Shirt,
@@ -38,12 +39,12 @@ const PROGRAMS = [
   {
     icon: Trash2,
     title: "Neighborhood Clean-Ups",
-    body: "Boots on the block  -  cleaning the neighborhoods that raised us.",
+    body: "Boots on the block. Cleaning the neighborhoods that raised us.",
   },
   {
     icon: MessageCircle,
     title: "Conflict Resolution",
-    body: "Sitting with people, not around them  -  helping resolve beefs before they turn into headlines.",
+    body: "Sitting with people, not around them. Helping resolve beefs before they turn into headlines.",
   },
   {
     icon: School,
@@ -53,7 +54,7 @@ const PROGRAMS = [
   {
     icon: Users,
     title: "A Resource",
-    body: "A place to reach out to with questions about the music industry  -  and community issues as well.",
+    body: "A place to reach out to with questions about the music industry, and community issues as well.",
   },
 ];
 
@@ -62,31 +63,36 @@ function Community() {
     <>
       <PageHeader
         eyebrow="Community"
-        title={<>On the <span className="text-gold-gradient">ground</span></>}
-        intro="The mission is accompanied by consistent community efforts  -  because respect is earned in the neighborhood, not in the studio."
+        title="On the ground"
+        intro="The mission is accompanied by consistent community efforts. Respect is earned in the neighborhood, not in the studio."
         image={heroCommunity}
-        imageAlt="Houston neighborhood street at dusk with warm streetlight glow and downtown skyline in the distance"
+        imageAlt="Houston neighborhood street at dusk"
       />
 
-      <section className="py-16 sm:py-24">
-        <div className="mx-auto max-w-7xl px-6">
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {PROGRAMS.map((p, i) => (
-              <Reveal key={p.title} delay={i * 0.05}>
-                <article className="hover-lift group h-full rounded-2xl border border-border bg-card p-6 sm:p-8">
-                  <div className="mb-6 inline-grid h-14 w-14 place-items-center rounded-xl border border-gold/30 bg-ink/40">
-                    <p.icon className="h-6 w-6 text-gold" strokeWidth={1.6} />
+      <section className="py-20 sm:py-28">
+        <div className="mx-auto max-w-4xl px-6 text-center">
+          <ChapterLabel>Programs</ChapterLabel>
+        </div>
+        <div className="mx-auto mt-14 grid max-w-7xl gap-px border border-hairline bg-hairline sm:grid-cols-2 lg:grid-cols-3">
+          {PROGRAMS.map((p, i) => (
+            <Reveal key={p.title} delay={i * 0.05}>
+              <article className="group flex h-full flex-col justify-between bg-surface p-8 transition-colors duration-200 hover:bg-surface-2">
+                <div>
+                  <div className="flex items-center justify-between font-mono-tech text-[10px] uppercase tracking-[0.3em] text-dim">
+                    <span>{String(i + 1).padStart(2, "0")}</span>
+                    <span>PROGRAM</span>
                   </div>
-                  <h3 className="font-display text-2xl uppercase text-ivory sm:text-3xl">
+                  <div className="mt-8 inline-grid h-11 w-11 place-items-center border border-hairline-strong bg-ink-2 transition-colors duration-200 group-hover:border-red/70">
+                    <p.icon className="h-5 w-5 text-ivory transition-colors duration-200 group-hover:text-red" strokeWidth={1.5} />
+                  </div>
+                  <h3 className="mt-6 text-2xl font-extrabold tracking-[-0.02em] text-ivory">
                     {p.title}
                   </h3>
-                  <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
-                    {p.body}
-                  </p>
-                </article>
-              </Reveal>
-            ))}
-          </div>
+                  <p className="mt-3 text-sm leading-relaxed text-mute" dangerouslySetInnerHTML={{ __html: p.body }} />
+                </div>
+              </article>
+            </Reveal>
+          ))}
         </div>
       </section>
     </>

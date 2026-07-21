@@ -17,19 +17,13 @@ export function MobileTabBar() {
   return (
     <nav
       aria-label="Primary"
-      className="fixed inset-x-0 bottom-0 z-40 border-t border-border bg-background/85 pb-safe backdrop-blur-xl lg:hidden"
+      className="fixed inset-x-0 bottom-0 z-40 border-t border-hairline bg-ink/95 pb-safe backdrop-blur-md lg:hidden"
     >
       <ul className="mx-auto grid max-w-md grid-cols-5">
         {TABS.map(({ to, label, icon: Icon }) => {
           const active = to === "/" ? pathname === "/" : pathname.startsWith(to);
           return (
-            <TabItem
-              key={to}
-              to={to}
-              label={label}
-              Icon={Icon}
-              active={active}
-            />
+            <TabItem key={to} to={to} label={label} Icon={Icon} active={active} />
           );
         })}
       </ul>
@@ -48,41 +42,29 @@ function TabItem({
   Icon: (typeof TABS)[number]["icon"];
   active: boolean;
 }) {
-  const { handlers, rippleLayer } = useTapRipple({
-    color: "var(--gold)",
-    haptic: active ? 6 : [4, 20, 4],
-  });
-
+  const { handlers, rippleLayer } = useTapRipple({ color: "rgba(228,50,43,0.35)", haptic: 6 });
   return (
     <li>
       <Link
         to={to}
         {...handlers}
-        className="relative flex flex-col items-center justify-center gap-1 overflow-hidden py-2.5 transition-transform duration-150 active:scale-[0.92]"
+        className="relative flex min-h-[56px] flex-col items-center justify-center gap-1 overflow-hidden py-2 transition-transform duration-150 active:scale-[0.95]"
         style={{ WebkitTapHighlightColor: "transparent" }}
       >
         {active && (
           <motion.span
             layoutId="tab-indicator"
-            className="absolute inset-x-6 top-0 h-0.5 rounded-full bg-blood-gradient"
+            className="absolute inset-x-8 top-0 h-px bg-red"
             transition={{ type: "spring", stiffness: 500, damping: 35 }}
           />
         )}
-        <motion.span
-          whileTap={{ scale: 0.82, y: -2 }}
-          transition={{ type: "spring", stiffness: 600, damping: 20 }}
-          className="relative"
-        >
-          <Icon
-            className={`h-5 w-5 transition-colors ${
-              active ? "text-gold" : "text-ivory/60"
-            }`}
-            strokeWidth={active ? 2.4 : 1.8}
-          />
-        </motion.span>
+        <Icon
+          className={`h-5 w-5 transition-colors ${active ? "text-red" : "text-mute"}`}
+          strokeWidth={active ? 2.2 : 1.7}
+        />
         <span
-          className={`text-[10px] uppercase tracking-wider transition-colors ${
-            active ? "text-gold" : "text-ivory/60"
+          className={`font-mono-tech text-[10px] uppercase tracking-[0.2em] transition-colors ${
+            active ? "text-red" : "text-mute"
           }`}
         >
           {label}
