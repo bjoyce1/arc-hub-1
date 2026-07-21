@@ -47,7 +47,7 @@ export function Hero() {
           className="mb-6 flex justify-center"
         >
           <span className="inline-flex items-center gap-2 rounded-full border border-gold/40 bg-ink/60 px-4 py-1.5 text-xs uppercase tracking-[0.3em] text-gold backdrop-blur">
-            <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-gold" />
+            <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-blood-light shadow-[0_0_10px_var(--blood-light)]" />
             Est. 2014 · Houston, TX
           </span>
         </motion.div>
