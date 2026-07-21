@@ -1,7 +1,9 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { motion } from "framer-motion";
+import { ArrowUpRight } from "lucide-react";
 import { PageHeader } from "@/components/arc/PageHeader";
 import heroPioneers from "@/assets/hero-pioneers.jpg";
+import { PIONEERS } from "@/data/pioneers";
 
 export const Route = createFileRoute("/pioneers")({
   head: () => ({
@@ -23,17 +25,6 @@ export const Route = createFileRoute("/pioneers")({
   component: Pioneers,
 });
 
-const PIONEERS = [
-  { name: "K-Rino", role: "Founder · Artist · SPC", tag: "FOUNDER" },
-  { name: "O.G. Wickett Crickett", role: "Legendary DJ · Radio", tag: "PIONEER" },
-  { name: "Ganxsta Nip", role: "Artist · South Park Coalition", tag: "ARTIST" },
-  { name: "Cl'Che", role: "Artist", tag: "ARTIST" },
-  { name: "Fiya the Media Mogul", role: "Media · Culture", tag: "MEDIA" },
-  { name: "Zin", role: "Artist · Producer", tag: "ARTIST" },
-  { name: "Murder One", role: "Artist", tag: "ARTIST" },
-  { name: "Mr. Cap", role: "Label · Executive", tag: "EXECUTIVE" },
-];
-
 function Pioneers() {
   return (
     <>
@@ -54,25 +45,31 @@ function Pioneers() {
           <ul>
             {PIONEERS.map((p, i) => (
               <motion.li
-                key={p.name}
+                key={p.slug}
                 initial={{ opacity: 0, y: 12 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-40px" }}
                 transition={{ duration: 0.5, delay: i * 0.04 }}
-                className="group grid grid-cols-[auto_1fr_auto] items-center gap-4 border-b border-hairline px-2 py-6 transition-colors duration-150 hover:bg-surface sm:grid-cols-[64px_1fr_140px_auto] sm:gap-8 sm:px-4 sm:py-8"
               >
-                <span className="font-mono-tech text-[11px] uppercase tracking-[0.3em] text-dim">
-                  {String(i + 1).padStart(2, "0")}
-                </span>
-                <span className="min-w-0 truncate text-2xl font-extrabold tracking-[-0.02em] text-ivory transition-colors group-hover:text-red sm:text-4xl">
-                  {p.name}
-                </span>
-                <span className="hidden font-mono-tech text-[10px] uppercase tracking-[0.28em] text-dim sm:block">
-                  {p.tag}
-                </span>
-                <span className="hidden text-right text-sm text-mute lg:block">
-                  {p.role}
-                </span>
+                <Link
+                  to="/pioneers/$slug"
+                  params={{ slug: p.slug }}
+                  className="group grid grid-cols-[auto_1fr_auto] items-center gap-4 border-b border-hairline px-2 py-6 transition-colors duration-150 hover:bg-surface sm:grid-cols-[64px_1fr_140px_auto] sm:gap-8 sm:px-4 sm:py-8"
+                >
+                  <span className="font-mono-tech text-[11px] uppercase tracking-[0.3em] text-dim">
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+                  <span className="min-w-0 truncate text-2xl font-extrabold tracking-[-0.02em] text-ivory transition-colors group-hover:text-red sm:text-4xl">
+                    {p.name}
+                  </span>
+                  <span className="hidden font-mono-tech text-[10px] uppercase tracking-[0.28em] text-dim sm:block">
+                    {p.tag}
+                  </span>
+                  <span className="hidden items-center gap-3 text-right text-sm text-mute lg:flex lg:justify-end">
+                    {p.role}
+                    <ArrowUpRight className="h-4 w-4 text-dim transition-colors group-hover:text-red" strokeWidth={1.5} />
+                  </span>
+                </Link>
               </motion.li>
             ))}
           </ul>

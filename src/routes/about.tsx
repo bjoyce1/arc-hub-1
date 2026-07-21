@@ -1,6 +1,9 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { motion, useScroll, useTransform } from "framer-motion";
+import { useRef } from "react";
 import { PageHeader } from "@/components/arc/PageHeader";
 import { Reveal } from "@/components/arc/Reveal";
+import { ChapterLabel } from "@/components/arc/ChapterLabel";
 import heroAbout from "@/assets/hero-about.jpg";
 
 export const Route = createFileRoute("/about")({
@@ -22,31 +25,66 @@ export const Route = createFileRoute("/about")({
   component: About,
 });
 
-const CHAPTERS = [
+const TIMELINE = [
   {
-    year: "2014 / CHICAGO",
+    year: "2014",
+    tag: "CHICAGO",
     title: "The meeting.",
     body: "The Honorable Minister Louis Farrakhan met in Chicago with prominent members of the Hip Hop community from across the country. He urged rappers to bring more consciousness into their music, end senseless beefs, and be an example the community could benefit from.",
   },
   {
-    year: "THE CHARGE",
+    year: "2014",
+    tag: "THE CHARGE",
     title: "Take it home.",
-    body: "Dr. Abdul Haleem Muhammad, Southwest Student Regional Minister of the Nation of Islam, and other student Ministers in attendance were instructed by Min. Farrakhan to take what they had witnessed back to their respective cities and do the same.",
+    body: "Dr. Abdul Haleem Muhammad, Southwest Student Regional Minister of the Nation of Islam, and other student Ministers in attendance were instructed by Min. Farrakhan to take what they had witnessed back to their respective cities.",
   },
   {
-    year: "HOUSTON",
+    year: "2014",
+    tag: "HOUSTON",
     title: "K-Rino answers the call.",
     body: "Houston rapper K-Rino was called upon by Dr. Abdul Haleem Muhammad to assist by reaching out to local music people in Houston. Shortly after, the first A.R.C. meeting was held.",
   },
   {
-    year: "THE FOUNDERS",
+    year: "2015",
+    tag: "THE FOUNDERS",
     title: "The room takes shape.",
     body: "Pioneers of the movement consisted of veteran artists, producers, label owners, and DJs. The Legendary O.G. Wickett Crickett, Ganxsta Nip, Cl'Che, Fiya the Media Mogul, Zin, Murder One, Mr. Cap, and K-Rino.",
   },
   {
-    year: "TODAY",
-    title: "Twelve years, still moving.",
-    body: "Two albums released, Time to Rise and Ready for the Revolution, with a third, Sieze the Time, expected near the end of 2026. Twelve years of educating, organizing, and serving the city we love.",
+    year: "2016",
+    tag: "BOOTS ON",
+    title: "Community first.",
+    body: "The collective's earliest ground work: feeding the homeless, clothing drives, and neighborhood clean-ups. Full milestone details pending.",
+  },
+  {
+    year: "2017",
+    tag: "VOL. I",
+    title: "Time to Rise.",
+    body: "The debut collective project. A call to consciousness and craft from the founding pioneers. Full release details pending.",
+  },
+  {
+    year: "2019",
+    tag: "IN SCHOOLS",
+    title: "Speaking directly.",
+    body: "A.R.C. members begin regularly speaking at Houston schools about music, business, ownership, and choice. Full milestone details pending.",
+  },
+  {
+    year: "2021",
+    tag: "VOL. II",
+    title: "Ready for the Revolution.",
+    body: "The follow-up statement. Ownership, education, and unapologetic art in service of the community. Full release details pending.",
+  },
+  {
+    year: "2023",
+    tag: "CONFLICT RESOLUTION",
+    title: "Sitting with, not around.",
+    body: "The collective steps in to help resolve tensions before they turn into headlines. Full milestone details pending.",
+  },
+  {
+    year: "2026",
+    tag: "VOL. III",
+    title: "Sieze the Time.",
+    body: "Twelve years after the first meeting, the collective returns with a record built for this moment. Coming late 2026.",
   },
 ];
 
@@ -62,28 +100,12 @@ function About() {
       />
 
       <section className="py-20 sm:py-28">
-        <div className="mx-auto max-w-4xl px-6">
-          <ol className="border-t border-hairline">
-            {CHAPTERS.map((c, i) => (
-              <Reveal key={c.title} delay={i * 0.05}>
-                <li className="grid gap-3 border-b border-hairline py-10 sm:grid-cols-[160px_1fr] sm:gap-10 sm:py-14">
-                  <div className="flex items-center gap-3 font-mono-tech text-[10px] uppercase tracking-[0.3em] text-dim">
-                    <span>{String(i + 1).padStart(2, "0")}</span>
-                    <span className="h-px w-8 bg-hairline-strong" />
-                    <span>{c.year}</span>
-                  </div>
-                  <div>
-                    <h2 className="text-3xl font-extrabold tracking-[-0.03em] text-ivory sm:text-5xl">
-                      {c.title}
-                    </h2>
-                    <p className="mt-5 max-w-2xl text-base leading-relaxed text-mute">
-                      {c.body}
-                    </p>
-                  </div>
-                </li>
-              </Reveal>
-            ))}
-          </ol>
+        <div className="mx-auto max-w-5xl px-6">
+          <div className="mb-14 text-center">
+            <ChapterLabel>Timeline · 2014 to 2026</ChapterLabel>
+          </div>
+
+          <TimelineRail />
         </div>
       </section>
 
@@ -100,5 +122,48 @@ function About() {
         </div>
       </section>
     </>
+  );
+}
+
+function TimelineRail() {
+  const ref = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start 80%", "end 20%"],
+  });
+  const lineHeight = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
+
+  return (
+    <div ref={ref} className="relative">
+      <div className="absolute left-4 top-0 h-full w-px bg-hairline sm:left-[136px]" />
+      <motion.div
+        className="absolute left-4 top-0 w-px bg-red sm:left-[136px]"
+        style={{ height: lineHeight }}
+      />
+
+      <ol className="space-y-14 sm:space-y-20">
+        {TIMELINE.map((c, i) => (
+          <Reveal key={`${c.year}-${c.title}`} delay={i * 0.03}>
+            <li className="relative grid gap-3 pl-12 sm:grid-cols-[136px_1fr] sm:gap-10 sm:pl-0">
+              <span className="absolute left-[13px] top-2 h-2 w-2 rounded-full bg-red sm:left-[131px]" />
+              <div className="font-mono-tech text-[11px] uppercase tracking-[0.3em] text-dim sm:text-right">
+                <div className="text-2xl font-extrabold tracking-[-0.02em] text-ivory sm:text-3xl">
+                  {c.year}
+                </div>
+                <div className="mt-2">{c.tag}</div>
+              </div>
+              <div>
+                <h2 className="text-3xl font-extrabold tracking-[-0.03em] text-ivory sm:text-4xl">
+                  {c.title}
+                </h2>
+                <p className="mt-4 max-w-2xl text-base leading-relaxed text-mute">
+                  {c.body}
+                </p>
+              </div>
+            </li>
+          </Reveal>
+        ))}
+      </ol>
+    </div>
   );
 }

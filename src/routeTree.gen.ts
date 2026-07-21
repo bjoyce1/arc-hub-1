@@ -16,6 +16,7 @@ import { Route as ContactRouteImport } from './routes/contact'
 import { Route as CommunityRouteImport } from './routes/community'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as PioneersSlugRouteImport } from './routes/pioneers.$slug'
 
 const PioneersRoute = PioneersRouteImport.update({
   id: '/pioneers',
@@ -52,6 +53,11 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const PioneersSlugRoute = PioneersSlugRouteImport.update({
+  id: '/$slug',
+  path: '/$slug',
+  getParentRoute: () => PioneersRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -60,7 +66,8 @@ export interface FileRoutesByFullPath {
   '/contact': typeof ContactRoute
   '/mission': typeof MissionRoute
   '/music': typeof MusicRoute
-  '/pioneers': typeof PioneersRoute
+  '/pioneers': typeof PioneersRouteWithChildren
+  '/pioneers/$slug': typeof PioneersSlugRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -69,7 +76,8 @@ export interface FileRoutesByTo {
   '/contact': typeof ContactRoute
   '/mission': typeof MissionRoute
   '/music': typeof MusicRoute
-  '/pioneers': typeof PioneersRoute
+  '/pioneers': typeof PioneersRouteWithChildren
+  '/pioneers/$slug': typeof PioneersSlugRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -79,7 +87,8 @@ export interface FileRoutesById {
   '/contact': typeof ContactRoute
   '/mission': typeof MissionRoute
   '/music': typeof MusicRoute
-  '/pioneers': typeof PioneersRoute
+  '/pioneers': typeof PioneersRouteWithChildren
+  '/pioneers/$slug': typeof PioneersSlugRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -91,6 +100,7 @@ export interface FileRouteTypes {
     | '/mission'
     | '/music'
     | '/pioneers'
+    | '/pioneers/$slug'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -100,6 +110,7 @@ export interface FileRouteTypes {
     | '/mission'
     | '/music'
     | '/pioneers'
+    | '/pioneers/$slug'
   id:
     | '__root__'
     | '/'
@@ -109,6 +120,7 @@ export interface FileRouteTypes {
     | '/mission'
     | '/music'
     | '/pioneers'
+    | '/pioneers/$slug'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -118,7 +130,7 @@ export interface RootRouteChildren {
   ContactRoute: typeof ContactRoute
   MissionRoute: typeof MissionRoute
   MusicRoute: typeof MusicRoute
-  PioneersRoute: typeof PioneersRoute
+  PioneersRoute: typeof PioneersRouteWithChildren
 }
 
 declare module '@tanstack/react-router' {
@@ -172,8 +184,27 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/pioneers/$slug': {
+      id: '/pioneers/$slug'
+      path: '/$slug'
+      fullPath: '/pioneers/$slug'
+      preLoaderRoute: typeof PioneersSlugRouteImport
+      parentRoute: typeof PioneersRoute
+    }
   }
 }
+
+interface PioneersRouteChildren {
+  PioneersSlugRoute: typeof PioneersSlugRoute
+}
+
+const PioneersRouteChildren: PioneersRouteChildren = {
+  PioneersSlugRoute: PioneersSlugRoute,
+}
+
+const PioneersRouteWithChildren = PioneersRoute._addFileChildren(
+  PioneersRouteChildren,
+)
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
@@ -182,18 +213,8 @@ const rootRouteChildren: RootRouteChildren = {
   ContactRoute: ContactRoute,
   MissionRoute: MissionRoute,
   MusicRoute: MusicRoute,
-  PioneersRoute: PioneersRoute,
+  PioneersRoute: PioneersRouteWithChildren,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}
