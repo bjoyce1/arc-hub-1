@@ -25,19 +25,18 @@ export function Hero() {
         className="pointer-events-none absolute inset-0"
       >
         <img
-          src={skyline}
+          src={skylineAsset.url}
           alt=""
           aria-hidden
-          className="h-full w-full object-cover opacity-25"
-          style={{ filter: "grayscale(1) contrast(1.05)" }}
+          className="h-full w-full object-cover opacity-60"
           width={1920}
           height={1080}
         />
-        <div className="absolute inset-0 bg-ink/60" />
+        <div className="absolute inset-0 bg-ink/40" />
         <div
           aria-hidden
           className="absolute inset-x-0 bottom-0 h-2/3"
-          style={{ background: "linear-gradient(to bottom, transparent, var(--ink) 85%)" }}
+          style={{ background: "linear-gradient(to bottom, transparent, var(--ink) 90%)" }}
         />
       </motion.div>
 
