@@ -133,12 +133,12 @@ export function Hero() {
           transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
           className="mb-6 flex justify-center"
         >
-          <span className="group inline-flex items-center gap-2 rounded-full border border-gold/40 bg-ink/60 px-4 py-1.5 text-xs uppercase tracking-[0.3em] text-gold backdrop-blur transition-colors hover:border-gold">
+          <span className="group inline-flex items-center gap-2 rounded-sm border border-gold/40 bg-ink/60 px-4 py-1.5 text-[10px] uppercase tracking-[0.35em] text-gold backdrop-blur transition-colors hover:border-gold font-mono-tech">
             <span className="relative flex h-1.5 w-1.5">
               <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-blood-light opacity-75" />
               <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-blood-light shadow-[0_0_10px_var(--blood-light)]" />
             </span>
-            Est. 2014 · Houston, TX
+            [ EST_2014 · HOUSTON_TX ]
           </span>
         </motion.div>
 
