@@ -212,9 +212,9 @@ export function Hero() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.2 }}
-        className="pointer-events-none absolute bottom-6 left-1/2 z-10 flex -translate-x-1/2 flex-col items-center gap-2 text-[10px] uppercase tracking-[0.4em] text-ivory/50"
+        className="pointer-events-none absolute bottom-6 left-1/2 z-10 flex -translate-x-1/2 flex-col items-center gap-2 text-[10px] uppercase tracking-[0.4em] text-ivory/50 font-mono-tech"
       >
-        <span>Scroll</span>
+        <span>{"// SCROLL"}</span>
         <span className="relative block h-8 w-px overflow-hidden bg-ivory/20">
           <motion.span
             className="absolute inset-x-0 top-0 block h-3 bg-gold"
