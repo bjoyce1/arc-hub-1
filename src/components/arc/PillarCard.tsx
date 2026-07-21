@@ -20,12 +20,13 @@ export function PillarCard({ icon: Icon, title, body, index }: PillarCardProps) 
     >
       {/* Top row: mono index + hairline count */}
       <div className="flex items-center justify-between font-mono-tech text-[10px] uppercase tracking-[0.3em] text-dim">
-        <span>{num}</span>
+        <span className="text-gold/80">{num}</span>
         <span className="flex items-center gap-2">
           <span className="h-px w-8 bg-hairline-strong" />
           <span>PILLAR</span>
         </span>
       </div>
+
 
       <div className="mt-10">
         <div className="mb-6 inline-grid h-11 w-11 place-items-center border border-hairline-strong bg-ink-2 transition-colors duration-200 group-hover:border-red/70">
