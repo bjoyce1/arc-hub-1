@@ -253,6 +253,20 @@
   animation: float-y 6s ease-in-out infinite;
 }
 
+@keyframes tap-ripple {
+  0% { transform: scale(0); opacity: 0.4; }
+  60% { opacity: 0.25; }
+  100% { transform: scale(1); opacity: 0; }
+}
+
+@utility press-lift {
+  transition: transform 200ms cubic-bezier(0.22, 1, 0.36, 1),
+              box-shadow 200ms cubic-bezier(0.22, 1, 0.36, 1);
+  &:active {
+    transform: scale(0.97);
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
     animation-duration: 0.001ms !important;
