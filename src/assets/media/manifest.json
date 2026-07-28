@@ -1,0 +1,534 @@
+[
+  {
+    "slug": "garden-club",
+    "kind": "flyer",
+    "width": 539,
+    "height": 539,
+    "variants": [
+      {
+        "w": 400,
+        "h": 400,
+        "file": "garden-club-400.webp",
+        "bytes": 37110
+      },
+      {
+        "w": 539,
+        "h": 539,
+        "file": "garden-club-539.webp",
+        "bytes": 56026
+      }
+    ]
+  },
+  {
+    "slug": "natural-healing",
+    "kind": "flyer",
+    "width": 3671,
+    "height": 2870,
+    "variants": [
+      {
+        "w": 400,
+        "h": 313,
+        "file": "natural-healing-400.webp",
+        "bytes": 40370
+      },
+      {
+        "w": 800,
+        "h": 625,
+        "file": "natural-healing-800.webp",
+        "bytes": 106700
+      },
+      {
+        "w": 1600,
+        "h": 1251,
+        "file": "natural-healing-1600.webp",
+        "bytes": 238592
+      }
+    ]
+  },
+  {
+    "slug": "toy-drive",
+    "kind": "flyer",
+    "width": 800,
+    "height": 1536,
+    "variants": [
+      {
+        "w": 400,
+        "h": 768,
+        "file": "toy-drive-400.webp",
+        "bytes": 42066
+      },
+      {
+        "w": 800,
+        "h": 1536,
+        "file": "toy-drive-800.webp",
+        "bytes": 92726
+      }
+    ]
+  },
+  {
+    "slug": "peace-roundtable",
+    "kind": "flyer",
+    "width": 976,
+    "height": 1771,
+    "variants": [
+      {
+        "w": 400,
+        "h": 726,
+        "file": "peace-roundtable-400.webp",
+        "bytes": 54002
+      },
+      {
+        "w": 800,
+        "h": 1452,
+        "file": "peace-roundtable-800.webp",
+        "bytes": 134510
+      },
+      {
+        "w": 976,
+        "h": 1771,
+        "file": "peace-roundtable-976.webp",
+        "bytes": 170390
+      }
+    ]
+  },
+  {
+    "slug": "dj-workshop",
+    "kind": "flyer",
+    "width": 540,
+    "height": 540,
+    "variants": [
+      {
+        "w": 400,
+        "h": 400,
+        "file": "dj-workshop-400.webp",
+        "bytes": 35656
+      },
+      {
+        "w": 540,
+        "h": 540,
+        "file": "dj-workshop-540.webp",
+        "bytes": 57264
+      }
+    ]
+  },
+  {
+    "slug": "fifty-meals",
+    "kind": "flyer",
+    "width": 686,
+    "height": 858,
+    "variants": [
+      {
+        "w": 400,
+        "h": 500,
+        "file": "fifty-meals-400.webp",
+        "bytes": 33672
+      },
+      {
+        "w": 686,
+        "h": 858,
+        "file": "fifty-meals-686.webp",
+        "bytes": 67086
+      }
+    ]
+  },
+  {
+    "slug": "back-2-school",
+    "kind": "flyer",
+    "width": 634,
+    "height": 888,
+    "variants": [
+      {
+        "w": 400,
+        "h": 560,
+        "file": "back-2-school-400.webp",
+        "bytes": 54320
+      },
+      {
+        "w": 634,
+        "h": 888,
+        "file": "back-2-school-634.webp",
+        "bytes": 95612
+      }
+    ]
+  },
+  {
+    "slug": "bridging-the-gap",
+    "kind": "flyer",
+    "width": 768,
+    "height": 960,
+    "variants": [
+      {
+        "w": 400,
+        "h": 500,
+        "file": "bridging-the-gap-400.webp",
+        "bytes": 45110
+      },
+      {
+        "w": 768,
+        "h": 960,
+        "file": "bridging-the-gap-768.webp",
+        "bytes": 116740
+      }
+    ]
+  },
+  {
+    "slug": "the-movement",
+    "kind": "flyer",
+    "width": 720,
+    "height": 1266,
+    "variants": [
+      {
+        "w": 400,
+        "h": 703,
+        "file": "the-movement-400.webp",
+        "bytes": 59740
+      },
+      {
+        "w": 720,
+        "h": 1266,
+        "file": "the-movement-720.webp",
+        "bytes": 116250
+      }
+    ]
+  },
+  {
+    "slug": "conscious-bash",
+    "kind": "flyer",
+    "width": 684,
+    "height": 960,
+    "variants": [
+      {
+        "w": 400,
+        "h": 561,
+        "file": "conscious-bash-400.webp",
+        "bytes": 53644
+      },
+      {
+        "w": 684,
+        "h": 960,
+        "file": "conscious-bash-684.webp",
+        "bytes": 107418
+      }
+    ]
+  },
+  {
+    "slug": "peace-ride",
+    "kind": "flyer",
+    "width": 1713,
+    "height": 2048,
+    "variants": [
+      {
+        "w": 400,
+        "h": 478,
+        "file": "peace-ride-400.webp",
+        "bytes": 54086
+      },
+      {
+        "w": 800,
+        "h": 956,
+        "file": "peace-ride-800.webp",
+        "bytes": 130874
+      },
+      {
+        "w": 1600,
+        "h": 1913,
+        "file": "peace-ride-1600.webp",
+        "bytes": 325032
+      }
+    ]
+  },
+  {
+    "slug": "wickett-crickett-memorial",
+    "kind": "flyer",
+    "width": 704,
+    "height": 1020,
+    "variants": [
+      {
+        "w": 400,
+        "h": 580,
+        "file": "wickett-crickett-memorial-400.webp",
+        "bytes": 36030
+      },
+      {
+        "w": 704,
+        "h": 1020,
+        "file": "wickett-crickett-memorial-704.webp",
+        "bytes": 77572
+      }
+    ]
+  },
+  {
+    "slug": "peace-ride-leaders",
+    "kind": "photo",
+    "width": 1109,
+    "height": 1097,
+    "variants": [
+      {
+        "w": 400,
+        "h": 396,
+        "file": "peace-ride-leaders-400.webp",
+        "bytes": 21112
+      },
+      {
+        "w": 800,
+        "h": 791,
+        "file": "peace-ride-leaders-800.webp",
+        "bytes": 48598
+      },
+      {
+        "w": 1109,
+        "h": 1097,
+        "file": "peace-ride-leaders-1109.webp",
+        "bytes": 69794
+      }
+    ]
+  },
+  {
+    "slug": "peace-ride-families",
+    "kind": "photo",
+    "width": 960,
+    "height": 960,
+    "variants": [
+      {
+        "w": 400,
+        "h": 400,
+        "file": "peace-ride-families-400.webp",
+        "bytes": 29986
+      },
+      {
+        "w": 800,
+        "h": 800,
+        "file": "peace-ride-families-800.webp",
+        "bytes": 79166
+      },
+      {
+        "w": 960,
+        "h": 960,
+        "file": "peace-ride-families-960.webp",
+        "bytes": 97956
+      }
+    ]
+  },
+  {
+    "slug": "sheila-jackson-lee",
+    "kind": "photo",
+    "width": 719,
+    "height": 960,
+    "variants": [
+      {
+        "w": 400,
+        "h": 534,
+        "file": "sheila-jackson-lee-400.webp",
+        "bytes": 33436
+      },
+      {
+        "w": 719,
+        "h": 960,
+        "file": "sheila-jackson-lee-719.webp",
+        "bytes": 76390
+      }
+    ]
+  },
+  {
+    "slug": "meal-packing",
+    "kind": "photo",
+    "width": 767,
+    "height": 960,
+    "variants": [
+      {
+        "w": 400,
+        "h": 501,
+        "file": "meal-packing-400.webp",
+        "bytes": 31542
+      },
+      {
+        "w": 767,
+        "h": 960,
+        "file": "meal-packing-767.webp",
+        "bytes": 65026
+      }
+    ]
+  },
+  {
+    "slug": "dj-set-yard",
+    "kind": "photo",
+    "width": 4032,
+    "height": 3024,
+    "variants": [
+      {
+        "w": 400,
+        "h": 300,
+        "file": "dj-set-yard-400.webp",
+        "bytes": 26294
+      },
+      {
+        "w": 800,
+        "h": 600,
+        "file": "dj-set-yard-800.webp",
+        "bytes": 73442
+      },
+      {
+        "w": 1600,
+        "h": 1200,
+        "file": "dj-set-yard-1600.webp",
+        "bytes": 173054
+      }
+    ]
+  },
+  {
+    "slug": "spc-performance",
+    "kind": "photo",
+    "width": 1080,
+    "height": 1080,
+    "variants": [
+      {
+        "w": 400,
+        "h": 400,
+        "file": "spc-performance-400.webp",
+        "bytes": 33016
+      },
+      {
+        "w": 800,
+        "h": 800,
+        "file": "spc-performance-800.webp",
+        "bytes": 98580
+      },
+      {
+        "w": 1080,
+        "h": 1080,
+        "file": "spc-performance-1080.webp",
+        "bytes": 155178
+      }
+    ]
+  },
+  {
+    "slug": "spc-audience",
+    "kind": "photo",
+    "width": 1440,
+    "height": 1080,
+    "variants": [
+      {
+        "w": 400,
+        "h": 300,
+        "file": "spc-audience-400.webp",
+        "bytes": 21364
+      },
+      {
+        "w": 800,
+        "h": 600,
+        "file": "spc-audience-800.webp",
+        "bytes": 70688
+      },
+      {
+        "w": 1440,
+        "h": 1080,
+        "file": "spc-audience-1440.webp",
+        "bytes": 196988
+      }
+    ]
+  },
+  {
+    "slug": "forum-audience",
+    "kind": "photo",
+    "width": 960,
+    "height": 720,
+    "variants": [
+      {
+        "w": 400,
+        "h": 300,
+        "file": "forum-audience-400.webp",
+        "bytes": 23378
+      },
+      {
+        "w": 800,
+        "h": 600,
+        "file": "forum-audience-800.webp",
+        "bytes": 60684
+      },
+      {
+        "w": 960,
+        "h": 720,
+        "file": "forum-audience-960.webp",
+        "bytes": 75750
+      }
+    ]
+  },
+  {
+    "slug": "supply-drop",
+    "kind": "photo",
+    "width": 960,
+    "height": 540,
+    "variants": [
+      {
+        "w": 400,
+        "h": 225,
+        "file": "supply-drop-400.webp",
+        "bytes": 15860
+      },
+      {
+        "w": 800,
+        "h": 450,
+        "file": "supply-drop-800.webp",
+        "bytes": 43468
+      },
+      {
+        "w": 960,
+        "h": 540,
+        "file": "supply-drop-960.webp",
+        "bytes": 56742
+      }
+    ]
+  },
+  {
+    "slug": "arc-banner",
+    "kind": "photo",
+    "width": 3024,
+    "height": 4032,
+    "variants": [
+      {
+        "w": 400,
+        "h": 533,
+        "file": "arc-banner-400.webp",
+        "bytes": 58812
+      },
+      {
+        "w": 800,
+        "h": 1067,
+        "file": "arc-banner-800.webp",
+        "bytes": 214950
+      },
+      {
+        "w": 1600,
+        "h": 2133,
+        "file": "arc-banner-1600.webp",
+        "bytes": 712378
+      }
+    ]
+  },
+  {
+    "slug": "noi-headquarters",
+    "kind": "photo",
+    "width": 3024,
+    "height": 4032,
+    "variants": [
+      {
+        "w": 400,
+        "h": 533,
+        "file": "noi-headquarters-400.webp",
+        "bytes": 37654
+      },
+      {
+        "w": 800,
+        "h": 1067,
+        "file": "noi-headquarters-800.webp",
+        "bytes": 124102
+      },
+      {
+        "w": 1600,
+        "h": 2133,
+        "file": "noi-headquarters-1600.webp",
+        "bytes": 404092
+      }
+    ]
+  }
+]
