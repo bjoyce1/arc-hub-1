@@ -102,7 +102,7 @@ function PioneerDetail() {
             <span className="font-mono-tech text-[10px] uppercase tracking-[0.3em] text-dim">
               ← Previous
             </span>
-            <p className="mt-2 text-lg font-extrabold tracking-[-0.02em] text-ivory transition-colors group-hover:text-red sm:text-2xl">
+            <p className="mt-2 text-lg font-extrabold tracking-[-0.02em] text-ivory transition-colors group-hover:text-gold sm:text-2xl">
               {prev.name}
             </p>
           </Link>
@@ -114,7 +114,7 @@ function PioneerDetail() {
             <span className="font-mono-tech text-[10px] uppercase tracking-[0.3em] text-dim">
               Next →
             </span>
-            <p className="mt-2 text-lg font-extrabold tracking-[-0.02em] text-ivory transition-colors group-hover:text-red sm:text-2xl">
+            <p className="mt-2 text-lg font-extrabold tracking-[-0.02em] text-ivory transition-colors group-hover:text-gold sm:text-2xl">
               {next.name}
             </p>
           </Link>
@@ -154,7 +154,7 @@ function PioneerNotFound() {
         <h1 className="mt-4 text-4xl font-extrabold tracking-[-0.03em] text-ivory sm:text-6xl">
           Pioneer not found
         </h1>
-        <Link to="/pioneers" className="btn-red mt-10 inline-flex">
+        <Link to="/pioneers" className="btn-gold mt-10 inline-flex">
           Back to roster
         </Link>
       </div>

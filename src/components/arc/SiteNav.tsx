@@ -2,7 +2,7 @@ import { Link, useRouterState } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
-import logoAsset from "@/assets/arc-logo.png.asset.json";
+import logoUrl from "@/assets/arc-logo-640.webp";
 
 const NAV = [
   { to: "/", label: "Home" },
@@ -39,13 +39,13 @@ export function SiteNav() {
         }`}
       >
         <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6">
-          <Link to="/" className="flex items-center gap-3">
+          <Link to="/" className="-m-2 flex items-center gap-3 p-2">
             <img
-              src={logoAsset.url}
+              src={logoUrl}
               alt="A.R.C."
               className="h-9 w-auto sm:h-10"
-              width={80}
-              height={48}
+              width={140}
+              height={100}
             />
             <span className="hidden font-mono-tech text-[11px] uppercase tracking-[0.32em] text-mute sm:block">
               A.R.C.
@@ -60,8 +60,8 @@ export function SiteNav() {
                 <Link
                   key={item.to}
                   to={item.to}
-                  className={`font-mono-tech text-[11px] uppercase tracking-[0.28em] transition-colors duration-150 ${
-                    active ? "text-red" : "text-mute hover:text-ivory"
+                  className={`tap-44 font-mono-tech text-[11px] uppercase tracking-[0.28em] transition-colors duration-150 ${
+                    active ? "text-gold" : "text-mute hover:text-ivory"
                   }`}
                 >
                   {item.label}
@@ -70,7 +70,7 @@ export function SiteNav() {
             })}
           </nav>
 
-          <Link to="/contact" className="btn-red hidden lg:inline-flex">
+          <Link to="/contact" className="btn-gold hidden lg:inline-flex">
             Join the movement
           </Link>
 
@@ -78,7 +78,7 @@ export function SiteNav() {
             type="button"
             aria-label="Open menu"
             onClick={() => setOpen(true)}
-            className="grid h-10 w-10 place-items-center border border-hairline-strong bg-ink/60 text-ivory backdrop-blur lg:hidden"
+            className="grid h-11 w-11 place-items-center border border-hairline-strong bg-ink/60 text-ivory backdrop-blur lg:hidden"
           >
             <Menu className="h-4 w-4" />
           </button>
@@ -97,13 +97,13 @@ export function SiteNav() {
             <div className="flex h-full flex-col pt-safe pb-safe">
               <div className="flex items-center justify-between px-4 py-3">
                 <Link to="/" onClick={() => setOpen(false)} className="flex items-center gap-3">
-                  <img src={logoAsset.url} alt="A.R.C." className="h-9 w-auto" />
+                  <img src={logoUrl} alt="A.R.C." className="h-9 w-auto" />
                 </Link>
                 <button
                   type="button"
                   aria-label="Close menu"
                   onClick={() => setOpen(false)}
-                  className="grid h-10 w-10 place-items-center border border-hairline-strong bg-surface text-ivory"
+                  className="grid h-11 w-11 place-items-center border border-hairline-strong bg-surface text-ivory"
                 >
                   <X className="h-4 w-4" />
                 </button>
@@ -124,7 +124,7 @@ export function SiteNav() {
                         onClick={() => setOpen(false)}
                         className="flex items-center justify-between border-b border-hairline py-5"
                       >
-                        <span className={`text-3xl font-extrabold tracking-[-0.02em] ${active ? "text-red" : "text-ivory"}`}>
+                        <span className={`text-3xl font-extrabold tracking-[-0.02em] ${active ? "text-gold" : "text-ivory"}`}>
                           {item.label}
                         </span>
                         <span className="font-mono-tech text-[10px] uppercase tracking-[0.3em] text-dim">
@@ -136,7 +136,7 @@ export function SiteNav() {
                 })}
               </nav>
               <div className="px-6 pb-6">
-                <Link to="/contact" onClick={() => setOpen(false)} className="btn-red w-full">
+                <Link to="/contact" onClick={() => setOpen(false)} className="btn-gold w-full">
                   Join the movement
                 </Link>
               </div>

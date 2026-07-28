@@ -4,7 +4,6 @@ import { PageHeader } from "@/components/arc/PageHeader";
 import { PillarCard } from "@/components/arc/PillarCard";
 import { Reveal } from "@/components/arc/Reveal";
 import { ChapterLabel } from "@/components/arc/ChapterLabel";
-import heroMission from "@/assets/hero-mission.jpg";
 
 export const Route = createFileRoute("/mission")({
   head: () => ({
@@ -56,8 +55,8 @@ function Mission() {
         eyebrow="Our Mission"
         title="What we're building"
         intro="A.R.C. exists to educate, elevate, and organize. Building an organization people can reach out to for the music industry and for the community."
-        image={heroMission}
-        imageAlt="Monolithic pillars rising from fog"
+        image="forum-audience"
+        imageAlt="A packed room at SHAPE Community Center for the Bridging the Gap forum"
       />
 
       <section className="py-20 sm:py-28">

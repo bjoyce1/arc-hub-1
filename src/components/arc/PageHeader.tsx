@@ -1,10 +1,12 @@
 import { motion, useScroll, useTransform, useReducedMotion } from "framer-motion";
 import { useRef, type ReactNode } from "react";
+import { media } from "@/lib/media";
 
 interface PageHeaderProps {
   eyebrow: string;
   title: ReactNode;
   intro?: ReactNode;
+  /** Media manifest slug for the backdrop photograph. */
   image?: string;
   imageAlt?: string;
 }
@@ -12,6 +14,7 @@ interface PageHeaderProps {
 export function PageHeader({ eyebrow, title, intro, image, imageAlt = "" }: PageHeaderProps) {
   const ref = useRef<HTMLElement>(null);
   const reduce = useReducedMotion();
+  const asset = image ? media(image) : null;
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start start", "end start"] });
   const y = useTransform(scrollYProgress, [0, 1], ["0%", reduce ? "0%" : "18%"]);
 
@@ -20,25 +23,36 @@ export function PageHeader({ eyebrow, title, intro, image, imageAlt = "" }: Page
       ref={ref}
       className="relative overflow-hidden border-b border-hairline pt-40 pb-20 sm:pt-48 sm:pb-28"
     >
-      {image && (
-        <motion.div
-          aria-hidden
-          style={{ y }}
-          className="pointer-events-none absolute inset-0 -z-10"
-        >
+      {/* No negative z-index on the backdrop. `-z-10` sent it behind the app
+          shell's opaque background — the header sets up no stacking context of
+          its own, so the backdrop escaped it and every hero photo rendered as
+          solid black. Plain DOM order does the layering instead: this paints
+          first, the positioned content block below paints over it. */}
+      {asset && (
+        <motion.div aria-hidden style={{ y }} className="pointer-events-none absolute inset-0">
           <img
-            src={image}
+            src={asset.src}
+            srcSet={asset.srcSet}
+            sizes="100vw"
             alt={imageAlt}
-            width={1920}
-            height={1080}
+            width={asset.width}
+            height={asset.height}
             loading="eager"
-            className="h-full w-full object-cover opacity-25"
-            style={{ filter: "grayscale(1) contrast(1.05)" }}
+            fetchPriority="high"
+            className="h-full w-full object-cover opacity-40"
+            style={{ filter: "grayscale(1) contrast(1.12)" }}
           />
-          <div className="absolute inset-0 bg-ink/60" />
+          {/* Three scrims, painted in this order so each one lands on top of the
+              last: a flat veil to knock the whole photograph back, then a scrim
+              under the fixed nav so the logo and hamburger always sit on
+              something quiet, then a bottom fade under the intro copy. */}
+          <div className="absolute inset-0 bg-ink/45" />
           <div
-            aria-hidden
-            className="absolute inset-x-0 bottom-0 h-1/2"
+            className="absolute inset-x-0 top-0 h-40"
+            style={{ background: "linear-gradient(to bottom, var(--ink), transparent)" }}
+          />
+          <div
+            className="absolute inset-x-0 bottom-0 h-3/5"
             style={{ background: "linear-gradient(to bottom, transparent, var(--ink))" }}
           />
         </motion.div>
@@ -51,7 +65,15 @@ export function PageHeader({ eyebrow, title, intro, image, imageAlt = "" }: Page
           transition={{ duration: 0.5 }}
           className="flex justify-center"
         >
-          <span className="chapter-pill">{eyebrow}</span>
+          {/* Over photography the pill needs its own ground — the mono type is
+              10px and washes out against a busy frame otherwise. */}
+          <span
+            className={
+              asset ? "chapter-pill bg-ink/70 text-ivory backdrop-blur-sm" : "chapter-pill"
+            }
+          >
+            {eyebrow}
+          </span>
         </motion.div>
         <motion.h1
           initial={{ opacity: 0, y: 16 }}

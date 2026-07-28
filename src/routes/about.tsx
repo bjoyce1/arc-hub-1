@@ -4,7 +4,6 @@ import { useRef } from "react";
 import { PageHeader } from "@/components/arc/PageHeader";
 import { Reveal } from "@/components/arc/Reveal";
 import { ChapterLabel } from "@/components/arc/ChapterLabel";
-import heroAbout from "@/assets/hero-about.jpg";
 
 export const Route = createFileRoute("/about")({
   head: () => ({
@@ -83,7 +82,7 @@ const TIMELINE = [
   {
     year: "2026",
     tag: "VOL. III",
-    title: "Sieze the Time.",
+    title: "Seize the Time.",
     body: "Twelve years after the first meeting, the collective returns with a record built for this moment. Coming late 2026.",
   },
 ];
@@ -95,8 +94,8 @@ function About() {
         eyebrow="Our Origin"
         title="The story of A.R.C."
         intro="From a room in Chicago to a movement in Houston. How Artists Respecting Community was born and why it still matters."
-        image={heroAbout}
-        imageAlt="Silhouettes of Hip Hop figures gathered in a dim room"
+        image="noi-headquarters"
+        imageAlt="Southwest Regional headquarters on Old Spanish Trail, where the Houston charge was taken up"
       />
 
       <section className="py-20 sm:py-28">
@@ -113,7 +112,7 @@ function About() {
         <div className="mx-auto max-w-3xl px-6">
           <Reveal>
             <blockquote className="text-3xl font-extrabold leading-[0.95] tracking-[-0.03em] text-ivory sm:text-5xl">
-              &ldquo;With knowledge comes <span className="text-red">great responsibility</span>.&rdquo;
+              &ldquo;With knowledge comes <span className="text-gold">great responsibility</span>.&rdquo;
             </blockquote>
             <p className="mt-8 font-mono-tech text-[10px] uppercase tracking-[0.32em] text-dim">
               A.R.C.
@@ -137,7 +136,7 @@ function TimelineRail() {
     <div ref={ref} className="relative">
       <div className="absolute left-4 top-0 h-full w-px bg-hairline sm:left-[136px]" />
       <motion.div
-        className="absolute left-4 top-0 w-px bg-red sm:left-[136px]"
+        className="absolute left-4 top-0 w-px bg-gold sm:left-[136px]"
         style={{ height: lineHeight }}
       />
 
@@ -145,7 +144,7 @@ function TimelineRail() {
         {TIMELINE.map((c, i) => (
           <Reveal key={`${c.year}-${c.title}`} delay={i * 0.03}>
             <li className="relative grid gap-3 pl-12 sm:grid-cols-[136px_1fr] sm:gap-10 sm:pl-0">
-              <span className="absolute left-[13px] top-2 h-2 w-2 rounded-full bg-red sm:left-[131px]" />
+              <span className="absolute left-[13px] top-2 h-2 w-2 rounded-full bg-gold sm:left-[131px]" />
               <div className="font-mono-tech text-[11px] uppercase tracking-[0.3em] text-dim sm:text-right">
                 <div className="text-2xl font-extrabold tracking-[-0.02em] text-ivory sm:text-3xl">
                   {c.year}

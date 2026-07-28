@@ -2,16 +2,16 @@ import useEmblaCarousel from "embla-carousel-react";
 import { motion } from "framer-motion";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { useCallback, useEffect, useState } from "react";
-import cover1Asset from "@/assets/album-time-to-rise.png.asset.json";
-import cover2Asset from "@/assets/album-ready-revolution.png.asset.json";
-import cover3Asset from "@/assets/album-sieze-the-time.png.asset.json";
+import cover1Url from "@/assets/album-time-to-rise.webp";
+import cover2Url from "@/assets/album-ready-revolution.webp";
+import cover3Url from "@/assets/album-seize-the-time.webp";
 
 export const ALBUMS = [
   {
     title: "Time to Rise",
     year: "VOL. I",
     status: "Released",
-    cover: cover1Asset.url,
+    cover: cover1Url,
     description:
       "The debut collective project. A call to consciousness and craft from the founding pioneers.",
   },
@@ -19,15 +19,15 @@ export const ALBUMS = [
     title: "Ready for the Revolution",
     year: "VOL. II",
     status: "Released",
-    cover: cover2Asset.url,
+    cover: cover2Url,
     description:
       "The follow-up statement. Ownership, education, and unapologetic art in service of the community.",
   },
   {
-    title: "Sieze the Time",
+    title: "Seize the Time",
     year: "VOL. III",
     status: "Coming 2026",
-    cover: cover3Asset.url,
+    cover: cover3Url,
     description:
       "The next chapter. Twelve years in, the movement returns with a project built for the moment.",
   },
@@ -112,7 +112,7 @@ function NavBtn({
       aria-label={label}
       onClick={onClick}
       disabled={disabled}
-      className="grid h-10 w-10 place-items-center border border-hairline-strong text-ivory transition-colors duration-150 disabled:opacity-30 hover:bg-surface-2"
+      className="grid h-11 w-11 place-items-center border border-hairline-strong text-ivory transition-colors duration-150 disabled:opacity-30 hover:bg-surface-2"
     >
       {children}
     </button>
@@ -145,7 +145,7 @@ export function AlbumCard({
           height={1024}
         />
         {upcoming && (
-          <span className="absolute left-3 top-3 border border-hairline-strong bg-ink/80 px-2.5 py-1 font-mono-tech text-[10px] uppercase tracking-[0.28em] text-red backdrop-blur">
+          <span className="absolute left-3 top-3 border border-hairline-strong bg-ink/80 px-2.5 py-1 font-mono-tech text-[10px] uppercase tracking-[0.28em] text-gold backdrop-blur">
             {status}
           </span>
         )}
@@ -172,7 +172,7 @@ export function AlbumCard({
                   key={s}
                   href="#"
                   aria-label={`Listen to ${title} on ${s} (link pending)`}
-                  className="border border-hairline-strong px-2 py-2 text-center font-mono-tech text-[9px] uppercase tracking-[0.25em] text-mute transition-colors duration-150 hover:border-red hover:text-ivory"
+                  className="flex min-h-11 items-center justify-center border border-hairline-strong px-2 text-center font-mono-tech text-[9px] uppercase tracking-[0.25em] text-mute transition-colors duration-150 hover:border-gold hover:text-ivory"
                 >
                   {s}
                 </a>
@@ -182,7 +182,7 @@ export function AlbumCard({
         ) : (
           <div className="mt-6 border-t border-hairline pt-5">
             <div className="flex items-center gap-3 font-mono-tech text-[10px] uppercase tracking-[0.3em] text-dim">
-              <span className="h-1.5 w-1.5 rounded-full bg-red" />
+              <span className="h-1.5 w-1.5 rounded-full bg-gold" />
               Pre-save launching soon
             </div>
           </div>

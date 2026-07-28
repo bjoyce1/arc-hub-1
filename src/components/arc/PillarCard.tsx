@@ -29,8 +29,8 @@ export function PillarCard({ icon: Icon, title, body, index }: PillarCardProps) 
 
 
       <div className="mt-10">
-        <div className="mb-6 inline-grid h-11 w-11 place-items-center border border-hairline-strong bg-ink-2 transition-colors duration-200 group-hover:border-red/70">
-          <Icon className="h-5 w-5 text-ivory transition-colors duration-200 group-hover:text-red" strokeWidth={1.5} />
+        <div className="mb-6 inline-grid h-11 w-11 place-items-center border border-hairline-strong bg-ink-2 transition-colors duration-200 group-hover:border-gold/70">
+          <Icon className="h-5 w-5 text-ivory transition-colors duration-200 group-hover:text-gold" strokeWidth={1.5} />
         </div>
         <h3 className="text-2xl font-bold tracking-[-0.02em] text-ivory sm:text-[1.75rem]">
           {title}
@@ -43,7 +43,7 @@ export function PillarCard({ icon: Icon, title, body, index }: PillarCardProps) 
       {/* Bottom hairline pulled from the red only on hover */}
       <div
         aria-hidden
-        className="pointer-events-none absolute inset-x-0 bottom-0 h-px origin-left scale-x-0 bg-red transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-x-100"
+        className="pointer-events-none absolute inset-x-0 bottom-0 h-px origin-left scale-x-0 bg-gold transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-x-100"
       />
     </motion.article>
   );

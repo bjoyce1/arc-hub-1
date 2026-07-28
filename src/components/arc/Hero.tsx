@@ -2,8 +2,10 @@ import { Link } from "@tanstack/react-router";
 import { motion, useScroll, useTransform, useReducedMotion } from "framer-motion";
 import { useRef } from "react";
 import { ArrowRight } from "lucide-react";
-import skylineAsset from "@/assets/skyline-hero-gold.png.asset.json";
-import logoAsset from "@/assets/arc-logo.png.asset.json";
+import skylineUrl from "@/assets/skyline-hero-gold.webp";
+import skylineUrlSm from "@/assets/skyline-hero-gold-960.webp";
+import logoUrl from "@/assets/arc-logo.webp";
+import logoUrlSm from "@/assets/arc-logo-640.webp";
 import { Typewriter } from "@/components/arc/Typewriter";
 
 export function Hero() {
@@ -25,12 +27,16 @@ export function Hero() {
         className="pointer-events-none absolute inset-0"
       >
         <img
-          src={skylineAsset.url}
+          src={skylineUrl}
+          srcSet={`${skylineUrlSm} 960w, ${skylineUrl} 1920w`}
+          sizes="100vw"
           alt=""
           aria-hidden
+          fetchPriority="high"
+          decoding="async"
           className="h-full w-full object-cover opacity-60"
           width={1920}
-          height={1080}
+          height={1088}
         />
         <div className="absolute inset-0 bg-ink/40" />
         <div
@@ -65,7 +71,7 @@ export function Hero() {
       {/* Mono telemetry rail */}
       <div className="pointer-events-none absolute inset-x-6 top-24 z-10 hidden items-center justify-between font-mono-tech text-[10px] uppercase tracking-[0.28em] text-mute sm:flex">
         <span className="inline-flex items-center gap-2">
-          <span aria-hidden className="inline-block h-1.5 w-1.5 rounded-full bg-red" />
+          <span aria-hidden className="inline-block h-1.5 w-1.5 rounded-full bg-gold" />
           SYS_ARC · 29.76°N / 95.37°W
         </span>
         <span className="inline-flex items-center gap-2">
@@ -76,7 +82,7 @@ export function Hero() {
 
       <motion.div
         style={{ y: contentY, opacity: contentOpacity }}
-        className="relative z-10 mx-auto max-w-5xl px-6 pt-32 pb-24 text-center"
+        className="relative z-10 mx-auto w-full min-w-0 max-w-5xl px-6 pt-32 pb-24 text-center"
       >
         <motion.div
           initial={{ opacity: 0, y: 8 }}
@@ -85,7 +91,7 @@ export function Hero() {
           className="mb-8 flex justify-center"
         >
           <span className="chapter-pill">
-            <span aria-hidden className="inline-block h-1.5 w-1.5 rounded-full bg-red" />
+            <span aria-hidden className="inline-block h-1.5 w-1.5 rounded-full bg-gold" />
             <Typewriter text="EST_2014 · HOUSTON_TX" delay={300} speed={38} />
           </span>
         </motion.div>
@@ -97,11 +103,15 @@ export function Hero() {
           className="mx-auto mb-8 max-w-xs sm:max-w-sm"
         >
           <img
-            src={logoAsset.url}
+            src={logoUrl}
+            srcSet={`${logoUrlSm} 640w, ${logoUrl} 1040w`}
+            sizes="(max-width: 640px) 80vw, 520px"
             alt="A.R.C. Artists Respecting Community"
+            fetchPriority="high"
+            decoding="async"
             className="mx-auto w-full"
-            width={520}
-            height={320}
+            width={1040}
+            height={742}
           />
         </motion.div>
 
@@ -109,16 +119,16 @@ export function Hero() {
           initial="hidden"
           animate="show"
           variants={{ hidden: {}, show: { transition: { staggerChildren: 0.08, delayChildren: 0.3 } } }}
-          className="mx-auto max-w-4xl text-5xl font-extrabold leading-[0.95] tracking-[-0.035em] text-ivory sm:text-7xl md:text-[5.5rem]"
+          className="mx-auto flex max-w-4xl flex-wrap justify-center gap-x-[0.25em] text-[clamp(2.75rem,13vw,8.5rem)] leading-[0.86] text-ivory"
         >
-          {["Artists", "Respecting", "Community"].map((w, i) => (
-            <span key={w} className="inline-block overflow-hidden align-baseline pb-1 pr-4">
+          {["Artists", "Respecting", "Community"].map((w) => (
+            <span key={w} className="inline-block overflow-hidden pb-[0.06em]">
               <motion.span
                 variants={{
                   hidden: { y: "108%" },
                   show: { y: "0%", transition: { duration: 0.85, ease: [0.22, 1, 0.36, 1] } },
                 }}
-                className={`inline-block ${i === 1 ? "text-ivory" : "text-ivory"}`}
+                className="inline-block text-gold-gradient"
               >
                 {w}
               </motion.span>
@@ -142,7 +152,7 @@ export function Hero() {
           transition={{ duration: 0.7, delay: 0.85 }}
           className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row"
         >
-          <Link to="/mission" className="btn-red w-full sm:w-auto">
+          <Link to="/mission" className="btn-gold w-full sm:w-auto">
             Our Mission
             <ArrowRight className="h-4 w-4" />
           </Link>
@@ -162,7 +172,7 @@ export function Hero() {
         <span>SCROLL</span>
         <span className="relative block h-8 w-px overflow-hidden bg-hairline-strong">
           <motion.span
-            className="absolute inset-x-0 top-0 block h-3 bg-red"
+            className="absolute inset-x-0 top-0 block h-3 bg-gold"
             animate={{ y: ["-100%", "300%"] }}
             transition={{ duration: 2, ease: "easeInOut", repeat: Infinity }}
           />

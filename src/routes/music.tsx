@@ -3,7 +3,6 @@ import { PageHeader } from "@/components/arc/PageHeader";
 import { AlbumCard, ALBUMS } from "@/components/arc/AlbumRail";
 import { Reveal } from "@/components/arc/Reveal";
 import { ChapterLabel } from "@/components/arc/ChapterLabel";
-import heroMusic from "@/assets/hero-music.jpg";
 
 export const Route = createFileRoute("/music")({
   head: () => ({
@@ -12,7 +11,7 @@ export const Route = createFileRoute("/music")({
       {
         name: "description",
         content:
-          "The A.R.C. discography. Time to Rise, Ready for the Revolution, and the upcoming Sieze the Time, expected near the end of 2026.",
+          "The A.R.C. discography. Time to Rise, Ready for the Revolution, and the upcoming Seize the Time, expected near the end of 2026.",
       },
       { property: "og:title", content: "A.R.C. Music" },
       {
@@ -31,9 +30,9 @@ function Music() {
       <PageHeader
         eyebrow="Discography"
         title="The Records"
-        intro="Two full length collective projects released. A third, Sieze the Time, expected near the end of 2026."
-        image={heroMusic}
-        imageAlt="Vintage microphone against a dark backdrop"
+        intro="Two full length collective projects released. A third, Seize the Time, expected near the end of 2026."
+        image="dj-set-yard"
+        imageAlt="Turntables set up in the yard at Old Spanish Trail"
       />
 
       <section className="py-20 sm:py-28">
@@ -56,14 +55,14 @@ function Music() {
           <Reveal>
             <ChapterLabel>Coming 2026</ChapterLabel>
             <h2 className="mt-8 text-4xl font-extrabold tracking-[-0.03em] text-ivory sm:text-6xl">
-              Sieze the Time
+              Seize the Time
             </h2>
             <p className="mt-6 text-base leading-relaxed text-mute">
               The third A.R.C. project. Twelve years after the first meeting,
               the collective returns with a record built for this moment.
             </p>
             <div className="mt-10 inline-flex items-center gap-4 border border-hairline-strong bg-surface px-6 py-4 font-mono-tech text-[10px] uppercase tracking-[0.3em] text-dim">
-              <span className="h-2 w-2 rounded-full bg-red" />
+              <span className="h-2 w-2 rounded-full bg-gold" />
               Pre-save launching soon
             </div>
           </Reveal>

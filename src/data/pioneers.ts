@@ -6,6 +6,14 @@ export type Pioneer = {
   bio: string;
   origin: string;
   years: string;
+  /**
+   * Stands in for the portrait until photography is supplied. Spelled out per
+   * pioneer rather than derived, because initials off a stage name go wrong
+   * fast — "Fiya the Media Mogul" and "O.G. Wickett Crickett" both do.
+   */
+  initials: string;
+  /** Media manifest slug for the portrait. Set this and the monogram retires. */
+  portrait?: string;
   streaming?: {
     spotify?: string;
     apple?: string;
@@ -17,6 +25,7 @@ export type Pioneer = {
 export const PIONEERS: Pioneer[] = [
   {
     slug: "k-rino",
+    initials: "KR",
     name: "K-Rino",
     role: "Founder · Artist · SPC",
     tag: "FOUNDER",
@@ -26,6 +35,7 @@ export const PIONEERS: Pioneer[] = [
   },
   {
     slug: "wickett-crickett",
+    initials: "WC",
     name: "O.G. Wickett Crickett",
     role: "Legendary DJ · Radio",
     tag: "PIONEER",
@@ -35,6 +45,7 @@ export const PIONEERS: Pioneer[] = [
   },
   {
     slug: "ganxsta-nip",
+    initials: "GN",
     name: "Ganxsta Nip",
     role: "Artist · South Park Coalition",
     tag: "ARTIST",
@@ -44,6 +55,7 @@ export const PIONEERS: Pioneer[] = [
   },
   {
     slug: "clche",
+    initials: "CC",
     name: "Cl'Che",
     role: "Artist",
     tag: "ARTIST",
@@ -53,6 +65,7 @@ export const PIONEERS: Pioneer[] = [
   },
   {
     slug: "fiya",
+    initials: "FY",
     name: "Fiya the Media Mogul",
     role: "Media · Culture",
     tag: "MEDIA",
@@ -62,6 +75,7 @@ export const PIONEERS: Pioneer[] = [
   },
   {
     slug: "zin",
+    initials: "ZN",
     name: "Zin",
     role: "Artist · Producer",
     tag: "ARTIST",
@@ -71,6 +85,7 @@ export const PIONEERS: Pioneer[] = [
   },
   {
     slug: "murder-one",
+    initials: "MO",
     name: "Murder One",
     role: "Artist",
     tag: "ARTIST",
@@ -80,6 +95,7 @@ export const PIONEERS: Pioneer[] = [
   },
   {
     slug: "mr-cap",
+    initials: "MC",
     name: "Mr. Cap",
     role: "Label · Executive",
     tag: "EXECUTIVE",
