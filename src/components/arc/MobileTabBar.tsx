@@ -42,7 +42,13 @@ function TabItem({
   Icon: (typeof TABS)[number]["icon"];
   active: boolean;
 }) {
-  const { handlers, rippleLayer } = useTapRipple({ color: "rgba(228,50,43,0.35)", haptic: 6 });
+  // Opaque on purpose: the hook already sets opacity 0.35 on the ripple node, so
+  // an alpha here would compound with it. The previous rgba(228,50,43,0.35) was
+  // both the destructive red — the one hue this brand never uses — and
+  // double-faded to roughly 0.12, so the tab you pressed flashed a colour from
+  // outside the palette, faintly. Gold matches the indicator and active label
+  // this same bar already renders.
+  const { handlers, rippleLayer } = useTapRipple({ color: "var(--gold)", haptic: 6 });
   return (
     <li>
       <Link
@@ -54,17 +60,23 @@ function TabItem({
         {active && (
           <motion.span
             layoutId="tab-indicator"
-            className="absolute inset-x-8 top-0 h-px bg-red"
+            className="absolute inset-x-8 top-0 h-px bg-gold"
             transition={{ type: "spring", stiffness: 500, damping: 35 }}
           />
         )}
         <Icon
-          className={`h-5 w-5 transition-colors ${active ? "text-red" : "text-mute"}`}
+          className={`h-5 w-5 transition-colors ${active ? "text-gold" : "text-mute"}`}
           strokeWidth={active ? 2.2 : 1.7}
         />
+        {/* "Community" is nine mono characters carrying 0.2em of tracking, which
+            needs 72px — more than the 64px column a 320px phone gives it. The
+            Link clips rather than overflows (it has to, for the ripple), so this
+            showed up as a label reading ":OMMUNITY" instead of as page overflow,
+            and no amount of scrollWidth checking would have found it. Tracking is
+            in em, so clamping the size alone pulls the whole label in. */}
         <span
-          className={`font-mono-tech text-[10px] uppercase tracking-[0.2em] transition-colors ${
-            active ? "text-red" : "text-mute"
+          className={`font-mono-tech text-[clamp(0.5rem,2.6vw,0.625rem)] uppercase tracking-[0.2em] transition-colors ${
+            active ? "text-gold" : "text-mute"
           }`}
         >
           {label}

@@ -3,7 +3,6 @@ import { useState } from "react";
 import { Send, Check } from "lucide-react";
 import { PageHeader } from "@/components/arc/PageHeader";
 import { Reveal } from "@/components/arc/Reveal";
-import heroContact from "@/assets/hero-contact.jpg";
 
 export const Route = createFileRoute("/contact")({
   head: () => ({
@@ -42,8 +41,8 @@ function Contact() {
         eyebrow="Reach Out"
         title="Get in touch"
         intro="Questions about the music industry? Community issues? Want to join the movement? Send it through."
-        image={heroContact}
-        imageAlt="Houston skyline at night"
+        image="arc-banner"
+        imageAlt="The A.R.C. banner raised at a community event"
       />
 
       <section className="py-20 sm:py-28">
@@ -56,7 +55,7 @@ function Contact() {
               <div>
                 <p className="font-mono-tech text-[10px] uppercase tracking-[0.3em] text-dim">The Anchor</p>
                 <p className="mt-4 text-2xl font-extrabold leading-[1.05] tracking-[-0.02em] text-ivory sm:text-3xl">
-                  &ldquo;The community won&rsquo;t respect <span className="text-red">US</span> unless <span className="text-red">WE</span> respect the community.&rdquo;
+                  &ldquo;The community won&rsquo;t respect <span className="text-gold">US</span> unless <span className="text-gold">WE</span> respect the community.&rdquo;
                 </p>
               </div>
             </div>
@@ -74,7 +73,7 @@ function Contact() {
                     required
                     value={form.name}
                     onChange={(e) => setForm({ ...form, name: e.target.value })}
-                    className="w-full border border-hairline-strong bg-ink px-4 py-3 text-ivory outline-none transition-colors focus:border-red"
+                    className="w-full border border-hairline-strong bg-ink px-4 py-3 text-ivory outline-none transition-colors focus:border-gold"
                   />
                 </Field>
                 <Field label="Email">
@@ -83,14 +82,14 @@ function Contact() {
                     type="email"
                     value={form.email}
                     onChange={(e) => setForm({ ...form, email: e.target.value })}
-                    className="w-full border border-hairline-strong bg-ink px-4 py-3 text-ivory outline-none transition-colors focus:border-red"
+                    className="w-full border border-hairline-strong bg-ink px-4 py-3 text-ivory outline-none transition-colors focus:border-gold"
                   />
                 </Field>
                 <Field label="Topic">
                   <select
                     value={form.topic}
                     onChange={(e) => setForm({ ...form, topic: e.target.value })}
-                    className="w-full border border-hairline-strong bg-ink px-4 py-3 text-ivory outline-none transition-colors focus:border-red"
+                    className="w-full border border-hairline-strong bg-ink px-4 py-3 text-ivory outline-none transition-colors focus:border-gold"
                   >
                     <option>General</option>
                     <option>Music Industry Question</option>
@@ -105,13 +104,13 @@ function Contact() {
                     rows={5}
                     value={form.message}
                     onChange={(e) => setForm({ ...form, message: e.target.value })}
-                    className="w-full border border-hairline-strong bg-ink px-4 py-3 text-ivory outline-none transition-colors focus:border-red"
+                    className="w-full border border-hairline-strong bg-ink px-4 py-3 text-ivory outline-none transition-colors focus:border-gold"
                   />
                 </Field>
               </div>
               <button
                 type="submit"
-                className={`mt-8 w-full ${sent ? "" : "btn-red"}`}
+                className={`mt-8 w-full ${sent ? "" : "btn-gold"}`}
                 style={sent ? { background: "var(--green)", color: "#fff", padding: "0.875rem 1.5rem", borderRadius: 6, display: "inline-flex", alignItems: "center", justifyContent: "center", gap: "0.5rem", fontSize: "0.8125rem", fontWeight: 600 } : undefined}
               >
                 {sent ? (
@@ -136,7 +135,14 @@ function Meta({ label, value }: { label: string; value: string }) {
   return (
     <div>
       <p className="font-mono-tech text-[10px] uppercase tracking-[0.3em] text-dim">{label}</p>
-      <p className="mt-3 text-3xl font-extrabold tracking-[-0.02em] text-ivory">{value}</p>
+      {/* Sized for the longest value this renders, which is the email — twenty
+          characters with no space to break at, so a flat text-3xl ran 343px wide
+          inside a 272px column and took the whole page with it. `anywhere` never
+          fires at real device widths; it is there so the failure mode below 320px
+          is a wrapped address rather than a sideways-scrolling page. */}
+      <p className="mt-3 text-[clamp(1.375rem,7vw,1.875rem)] font-extrabold tracking-[-0.02em] text-ivory [overflow-wrap:anywhere]">
+        {value}
+      </p>
     </div>
   );
 }

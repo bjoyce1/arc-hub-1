@@ -133,7 +133,7 @@ function Home() {
               </div>
               <Link
                 to="/about"
-                className="group mt-10 inline-flex items-center gap-2 font-mono-tech text-[11px] uppercase tracking-[0.3em] text-red hover:text-ivory transition-colors"
+                className="group mt-8 inline-flex min-h-11 items-center gap-2 font-mono-tech text-[11px] uppercase tracking-[0.3em] text-gold transition-colors hover:text-ivory"
               >
                 Read the full story
                 <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
@@ -185,8 +185,10 @@ function Home() {
             </h2>
           </Reveal>
         </div>
-        <div className="mx-auto mt-16 grid max-w-6xl grid-cols-2 divide-x divide-hairline border-y border-hairline sm:grid-cols-4">
-          <StatBlock><StatCounter value={12} suffix="+" label="Years Active" accent="red" /></StatBlock>
+        {/* Four-up waits for lg. Splitting at sm handed each stat a 160px
+            column, which "1,000+" overflowed by 66px on a tablet. */}
+        <div className="mx-auto mt-16 grid max-w-6xl grid-cols-2 divide-x divide-hairline border-y border-hairline lg:grid-cols-4">
+          <StatBlock><StatCounter value={12} suffix="+" label="Years Active" accent="gold" /></StatBlock>
           <StatBlock><StatCounter value={2} label="Albums Released" /></StatBlock>
           <StatBlock><StatCounter value={100} suffix="+" label="Artists Reached" /></StatBlock>
           <StatBlock><StatCounter value={1000} suffix="+" label="Community Served" accent="green" /></StatBlock>
@@ -220,10 +222,10 @@ function Home() {
                 <span className="font-mono-tech text-[11px] uppercase tracking-[0.3em] text-dim">
                   {String(i + 1).padStart(2, "0")}
                 </span>
-                <span className="min-w-0 truncate text-2xl font-extrabold tracking-[-0.02em] text-ivory transition-colors group-hover:text-red sm:text-4xl">
+                <span className="min-w-0 truncate text-2xl font-extrabold tracking-[-0.02em] text-ivory transition-colors group-hover:text-gold sm:text-4xl">
                   {name}
                 </span>
-                <ArrowUpRight className="h-4 w-4 shrink-0 text-dim transition-colors group-hover:text-red" />
+                <ArrowUpRight className="h-4 w-4 shrink-0 text-dim transition-colors group-hover:text-gold" />
               </Link>
             </motion.div>
           ))}
@@ -240,12 +242,12 @@ function Home() {
           <Reveal>
             <blockquote className="text-4xl font-extrabold leading-[0.95] tracking-[-0.035em] text-ivory sm:text-7xl md:text-[6.5rem]">
               &ldquo;The community won&rsquo;t respect{" "}
-              <span className="text-red">US</span>
+              <span className="text-gold">US</span>
               <br />
-              unless <span className="text-red">WE</span> respect the community.&rdquo;
+              unless <span className="text-gold">WE</span> respect the community.&rdquo;
             </blockquote>
             <div className="mt-14">
-              <Link to="/contact" className="btn-red">
+              <Link to="/contact" className="btn-gold">
                 Join the movement
                 <ArrowRight className="h-4 w-4" />
               </Link>
@@ -258,5 +260,5 @@ function Home() {
 }
 
 function StatBlock({ children }: { children: React.ReactNode }) {
-  return <div className="px-6 py-10 sm:px-8 sm:py-14">{children}</div>;
+  return <div className="px-4 py-10 sm:px-8 sm:py-14">{children}</div>;
 }

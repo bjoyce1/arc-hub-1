@@ -5,16 +5,19 @@
 @custom-variant dark (&:is(.dark *));
 
 /*
- * A.R.C. Design System — matte engineered dark
+ * A.R.C. Design System — chiseled gold on black
  *
- * Palette derived from the ARC logo: near-black matte field, ivory
- * letterforms, disciplined red signature accent. Everything else grayscale.
+ * Palette sampled directly from the A.R.C. logo (61,814 gold pixels measured):
+ * black field, warm ivory letterforms, and the logo's own antique gold as the
+ * single signature accent. There is no red in the mark, so there is no red here.
  *
  * Rules:
- *  - No gradients on backgrounds, buttons, borders, or text
- *  - No glows / colored shadows
- *  - Red is the signature. Green is rare (growth / affirmation only)
- *  - Mono micro-labels are part of the identity
+ *  - Gold is the signature. It carries CTAs, active states, and rules.
+ *  - Metallic gold gradients belong on display type and the logo lockup only,
+ *    echoing the bevelled letterforms in the mark. Never on body copy.
+ *  - Red survives only as a true destructive/error state, never as brand.
+ *  - Mono micro-labels are part of the identity.
+ *  - Gold on ink measures 7.47:1 — AA for body text, AAA for large text.
  */
 
 @theme inline {
@@ -63,12 +66,10 @@
   --color-gold: var(--gold);
   --color-gold-light: var(--gold-light);
   --color-gold-dark: var(--gold-dark);
-  --color-blood: var(--red);
-  --color-blood-light: var(--red);
-  --color-blood-dark: var(--red-dim);
+  --color-gold-deep: var(--gold-deep);
+  --color-gold-hi: var(--gold-hi);
 
-
-  --font-display: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Bebas Neue", "Inter", ui-sans-serif, system-ui, sans-serif;
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
   --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
 }
@@ -80,23 +81,26 @@
   --surface: #121212;
   --surface-2: #171717;
 
-  /* Text */
-  --ivory: #F5F5F5;
-  --text-muted: #8A8A8A;
-  --text-dim: #555555;
+  /* Text — warm ivory sampled from the logo letterforms, not cold grey */
+  --ivory: #FDFCF9;
+  --ivory-dim: #E9E6E1;
+  --text-muted: #948E84;
+  --text-dim: #5C574F;
 
-  /* Rules */
-  --hairline: rgba(255, 255, 255, 0.08);
-  --hairline-strong: rgba(255, 255, 255, 0.14);
+  /* Rules — warmed very slightly so they sit with the gold */
+  --hairline: rgba(253, 252, 249, 0.09);
+  --hairline-strong: rgba(253, 252, 249, 0.16);
 
-  /* Signature accent — red harmonized with the logo mark */
+  /* SIGNATURE — antique gold, measured from the A.R.C. mark itself */
+  --gold-deep: #735821;
+  --gold-dark: #A28029;
+  --gold: #BE9738;
+  --gold-light: #C7A143;
+  --gold-hi: #E0BC5F;
+
+  /* Destructive / error only. Not a brand colour. */
   --red: #E4322B;
   --red-dim: #B0231D;
-
-  /* Subtle secondary accent — antique gold, used sparingly for warmth */
-  --gold: #C9A96A;
-  --gold-light: #D9BE83;
-  --gold-dark: #9C7F45;
 
   /* Rare tertiary — growth / affirmation only */
   --green: #3FB27F;
@@ -109,19 +113,19 @@
   --card-foreground: var(--ivory);
   --popover: var(--surface);
   --popover-foreground: var(--ivory);
-  --primary: var(--red);
-  --primary-foreground: #FFFFFF;
+  --primary: var(--gold);
+  --primary-foreground: #0A0A0A;
   --secondary: var(--surface-2);
   --secondary-foreground: var(--ivory);
   --muted: var(--surface-2);
   --muted-foreground: var(--text-muted);
-  --accent: var(--red);
-  --accent-foreground: #FFFFFF;
+  --accent: var(--gold);
+  --accent-foreground: #0A0A0A;
   --destructive: var(--red);
   --destructive-foreground: #FFFFFF;
   --border: var(--hairline);
   --input: var(--hairline-strong);
-  --ring: var(--red);
+  --ring: var(--gold-hi);
 }
 
 @layer base {
@@ -129,8 +133,12 @@
     border-color: var(--hairline);
   }
 
+  /* No `scroll-behavior: smooth` here. The router restores scroll to the top on
+     every navigation, and a smooth root turns that restore into an animation:
+     tapping a tab from 2800px down rendered the new route mid-page and then slid
+     it up over ~840ms. An app cuts to the top of the new screen instantly.
+     Nothing in the site anchor-jumps, so there is nothing to trade away. */
   html {
-    scroll-behavior: smooth;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
@@ -145,16 +153,41 @@
     -webkit-tap-highlight-color: transparent;
   }
 
-  h1, h2, h3, h4 {
+  /* Long-press behaviour is the loudest tell that a phone screen is a web page.
+     Holding a tab label raised the iOS selection magnifier, and holding a flyer
+     raised the system Save Image sheet — which also swallowed the tap that
+     should open the lightbox. Naming only the controls is enough, because
+     user-select inherits: a card's heading and blurb are covered without being
+     listed. Editorial prose outside a control keeps the browser default and
+     stays selectable, because a visitor quoting a pioneer should be able to. */
+  nav, img, button, [role="button"], a[href] {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    user-select: none;
+  }
+
+  /* Display scale — Bebas Neue, the condensed caps that echo the logo banner.
+     Single weight by design, so tracking (not weight) creates the emphasis. */
+  h1, h2 {
     font-family: var(--font-display);
-    font-weight: 800;
-    letter-spacing: -0.03em;
-    line-height: 0.95;
+    font-weight: 400;
+    letter-spacing: 0.005em;
+    line-height: 0.88;
+    text-transform: uppercase;
+  }
+
+  /* Sub-heads stay on Inter — Bebas has no lowercase, so it fails at small
+     sizes and in running text. */
+  h3, h4 {
+    font-family: var(--font-sans);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    line-height: 1.1;
   }
 
   ::selection {
-    background-color: var(--red);
-    color: #FFFFFF;
+    background-color: var(--gold);
+    color: #0A0A0A;
   }
 }
 
@@ -186,22 +219,34 @@
   color: var(--text-muted);
 }
 
-@utility btn-red {
+/* Primary CTA — bevelled gold, echoing the raised edge on the logo letters.
+   Dark label on gold measures 7.47:1. */
+@utility btn-gold {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
   padding: 0.875rem 1.5rem;
-  background: var(--red);
-  color: #FFFFFF;
+  background: linear-gradient(180deg, var(--gold-light) 0%, var(--gold) 52%, var(--gold-dark) 100%);
+  color: #0A0A0A;
   font-family: var(--font-sans);
   font-size: 0.8125rem;
-  font-weight: 600;
+  font-weight: 700;
   letter-spacing: 0.02em;
   border-radius: 6px;
-  transition: background 180ms ease, transform 120ms ease;
-  &:hover { background: var(--red-dim); }
-  &:active { transform: translateY(1px); }
+  box-shadow:
+    inset 0 1px 0 rgba(255, 245, 214, 0.55),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.35),
+    0 1px 2px rgba(0, 0, 0, 0.5);
+  transition: filter 180ms ease, transform 120ms ease, box-shadow 180ms ease;
+  &:hover {
+    filter: brightness(1.09);
+    box-shadow:
+      inset 0 1px 0 rgba(255, 245, 214, 0.7),
+      inset 0 -1px 0 rgba(0, 0, 0, 0.35),
+      0 2px 10px rgba(190, 151, 56, 0.28);
+  }
+  &:active { transform: translateY(1px); filter: brightness(0.96); }
 }
 
 @utility btn-ghost {
@@ -246,6 +291,39 @@
   }
 }
 
+/* Grows a small control's hit area to the 44px WCAG 2.5.5 / iOS HIG minimum
+   without disturbing layout: the visual box stays put and an invisible
+   pseudo-element does the catching. For controls whose height is load-bearing
+   (an underline pinned to the box bottom, a tight grid row) and so can't
+   simply be padded out. */
+@utility tap-44 {
+  position: relative;
+  &::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+    width: max(100%, 44px);
+    height: max(100%, 44px);
+  }
+}
+
+/* Horizontal chip/filter rail, the way a native app handles a segmented list
+   too wide for the screen: swipe sideways rather than wrapping onto three
+   lines. Momentum scrolling on iOS, snapping so a chip never rests half cut,
+   and no scrollbar chrome. */
+@utility scroll-rail {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x proximity;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior-x: contain;
+  scrollbar-width: none;
+  &::-webkit-scrollbar { display: none; }
+  > * { flex: none; scroll-snap-align: start; }
+}
+
 @utility marquee {
   animation: marquee 40s linear infinite;
 }
@@ -254,15 +332,54 @@
   to   { transform: translateX(-50%); }
 }
 
-/* Legacy aliases kept so existing className references don't error.
-   All resolve to flat neutrals in the new system. */
-@utility text-gold-gradient { color: var(--ivory); }
-@utility text-blood-gradient { color: var(--red); }
-@utility bg-gold-gradient   { background: var(--red); color: #FFFFFF; }
-@utility bg-blood-gradient  { background: var(--red); }
-@utility border-gold-gradient { border: 1px solid var(--hairline-strong); }
-@utility arc-embossed { color: var(--ivory); }
-@utility grain { position: relative; }
+/* Metallic gold treatments — these carry the logo's bevelled letterform
+   language into type. Display sizes only; they wash out under 24px. */
+@utility text-gold-gradient {
+  background: linear-gradient(
+    180deg,
+    var(--gold-hi) 0%,
+    var(--gold-light) 34%,
+    var(--gold) 58%,
+    var(--gold-dark) 82%,
+    var(--gold-hi) 100%
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+@utility bg-gold-gradient {
+  background: linear-gradient(180deg, var(--gold-light) 0%, var(--gold) 52%, var(--gold-dark) 100%);
+  color: #0A0A0A;
+}
+
+@utility border-gold-gradient {
+  border: 1px solid var(--gold-dark);
+}
+
+/* Chiselled ivory letterform with a gold rim — the "ARC" treatment. */
+@utility arc-embossed {
+  color: var(--ivory);
+  text-shadow:
+    0 1px 0 var(--gold-hi),
+    0 2px 0 var(--gold-dark),
+    0 3px 0 var(--gold-deep),
+    0 4px 10px rgba(0, 0, 0, 0.7);
+}
+
+/* Film grain over the black field — keeps large dark areas from banding. */
+@utility grain {
+  position: relative;
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.05;
+    mix-blend-mode: overlay;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+}
 @utility hover-lift {
   transition: background 180ms ease, border-color 180ms ease;
   &:hover { background: var(--surface-2); border-color: var(--hairline-strong); }

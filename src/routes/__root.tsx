@@ -78,6 +78,14 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1, viewport-fit=cover" },
       { name: "theme-color", content: "#0B0B0B" },
+      // iOS does not read the webmanifest's `display` field, so without these
+      // "Add to Home Screen" still opens inside Safari's chrome. `black-translucent`
+      // runs the app under the status bar, which is what viewport-fit=cover and
+      // the pt-safe/pb-safe utilities are already laid out for.
+      { name: "apple-mobile-web-app-capable", content: "yes" },
+      { name: "apple-mobile-web-app-status-bar-style", content: "black-translucent" },
+      { name: "apple-mobile-web-app-title", content: "A.R.C." },
+      { name: "mobile-web-app-capable", content: "yes" },
       { title: "A.R.C.  -  Artists Respecting Community | Houston Movement Since 2014" },
       {
         name: "description",
@@ -101,7 +109,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     links: [
       { rel: "stylesheet", href: appCss },
       { rel: "icon", type: "image/png", href: "/favicon.png" },
-      { rel: "apple-touch-icon", href: "/favicon.png" },
+      { rel: "apple-touch-icon", sizes: "180x180", href: "/apple-touch-icon.png" },
       { rel: "manifest", href: "/manifest.webmanifest" },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
@@ -139,7 +147,10 @@ function RootComponent() {
       <div className="relative min-h-screen bg-background">
         <ScrollProgress />
         <SiteNav />
-        <main className="pb-20 lg:pb-0">
+        {/* No bottom padding here for the tab bar. The footer is a sibling that
+            renders below <main>, so padding here only opened an 80px gap above
+            the footer on phones. The clearance belongs on the footer itself. */}
+        <main>
           <PageTransition>
             <Outlet />
           </PageTransition>
