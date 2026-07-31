@@ -46,7 +46,7 @@ const PROGRAMS = [
   {
     icon: Shirt,
     title: "Clothing Drives",
-    body: "Collecting and distributing clothing where it&rsquo;s needed most, year-round.",
+    body: "Collecting and distributing clothing where it’s needed most, year-round.",
   },
   {
     icon: Trash2,
