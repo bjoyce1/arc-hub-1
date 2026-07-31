@@ -124,10 +124,7 @@ function Community() {
                   <h3 className="mt-6 text-2xl font-extrabold tracking-[-0.02em] text-ivory">
                     {p.title}
                   </h3>
-                  <p
-                    className="mt-3 text-sm leading-relaxed text-mute"
-                    dangerouslySetInnerHTML={{ __html: p.body }}
-                  />
+                  <p className="mt-3 text-sm leading-relaxed text-mute">{p.body}</p>
                 </div>
               </article>
             </Reveal>
