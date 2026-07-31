@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import {
   ArrowRight,
+  LifeBuoy,
   Maximize2,
   MessageCircle,
   School,
@@ -46,7 +47,7 @@ const PROGRAMS = [
   {
     icon: Shirt,
     title: "Clothing Drives",
-    body: "Collecting and distributing clothing where it&rsquo;s needed most, year-round.",
+    body: "Collecting and distributing clothing where it’s needed most, year-round.",
   },
   {
     icon: Trash2,
@@ -62,6 +63,11 @@ const PROGRAMS = [
     icon: School,
     title: "Speaking at Schools",
     body: "Talking directly with young people about music, business, ownership, and the choices in front of them.",
+  },
+  {
+    icon: LifeBuoy,
+    title: "Disaster Preparedness",
+    body: "Getting families ready before the storm hits. Supply kits, evacuation know-how, and mutual aid when Houston weather turns.",
   },
   {
     icon: Users,
@@ -118,10 +124,7 @@ function Community() {
                   <h3 className="mt-6 text-2xl font-extrabold tracking-[-0.02em] text-ivory">
                     {p.title}
                   </h3>
-                  <p
-                    className="mt-3 text-sm leading-relaxed text-mute"
-                    dangerouslySetInnerHTML={{ __html: p.body }}
-                  />
+                  <p className="mt-3 text-sm leading-relaxed text-mute">{p.body}</p>
                 </div>
               </article>
             </Reveal>

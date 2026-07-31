@@ -34,7 +34,7 @@ const PILLARS = [
   {
     icon: Crown,
     title: "Ownership",
-    body: "Ownership is freedom. We encourage artists to own their masters, publishing, and the platforms they build careers on. You can&rsquo;t control what you don&rsquo;t own.",
+    body: "Ownership is freedom. We encourage artists to own their masters, publishing, and the platforms they build careers on. You can’t control what you don’t own.",
   },
   {
     icon: Radio,
