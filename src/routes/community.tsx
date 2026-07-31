@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import {
   ArrowRight,
+  LifeBuoy,
   Maximize2,
   MessageCircle,
   School,
@@ -62,6 +63,11 @@ const PROGRAMS = [
     icon: School,
     title: "Speaking at Schools",
     body: "Talking directly with young people about music, business, ownership, and the choices in front of them.",
+  },
+  {
+    icon: LifeBuoy,
+    title: "Disaster Preparedness",
+    body: "Getting families ready before the storm hits. Supply kits, evacuation know-how, and mutual aid when Houston weather turns.",
   },
   {
     icon: Users,
